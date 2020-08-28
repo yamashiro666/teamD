@@ -1,0 +1,3 @@
+class IntroStartBeginner extends display{
+	
+}

@@ -1,0 +1,3 @@
+class Ending extends display{
+	
+}
