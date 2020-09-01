@@ -1,0 +1,3 @@
+class AnswerSelectMedium extends display{
+	
+}
