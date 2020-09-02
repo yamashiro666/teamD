@@ -2,10 +2,6 @@ package display;
 
 public class StartDisplay extends Display{
 
-	public void startDisplay(String filePath){
-			super.display(filePath);
-	}
-
 	@Override
 	public void selector() {
 		/*

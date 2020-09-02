@@ -18,15 +18,27 @@ public abstract class Display{
 		return this.pressedKey;
 	}
 
+	/**
+	 *  ■displayメソッドの処理内容
+	 *  1. FileReader でリーダー作成
+	 *  2. 1で作成したオブジェクトを BufferedReader でラップする
+	 *  3. BufferedReader の readLineメソッドで 1行単位で読み込み
+	 *  4. コマンドプロンプトへ出力
+	 *
+	 *  @param filePath テキストファイルのパス
+	 */
 	public void display(String filePath) {
 
 		StringBuffer strBuffer = new StringBuffer();
 
 		try {
+			// 1. FileReader でリーダー作成
 			FileReader fileReader = new FileReader(filePath);
+			// 2. 1で作成したオブジェクトを BufferedReader でラップする
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String data;
 
+            // 3. BufferedReader の readLineメソッドで 1行単位で読み込み
             while ((data = bufferedReader.readLine()) != null) {
             	strBuffer.append(data);
             }
@@ -36,14 +48,14 @@ public abstract class Display{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		// 4. コマンドプロンプトへ出力
 		System.out.println(strBuffer);
 	}
 
-	/*
-	 * waiting()メソッドの処理内容
+	/**
+	 *  ■waiting()メソッドの処理内容
 	 *  1. InputStreamReaderを使い、入力待ち状態を作る。
 	 *  2. 押されたキーをフィールド pressedKey に代入する。
-	 *  3. 代入された pressedKey を使いselector()メソッド内で処理を振り分けてゆく
 	 */
 	public void waiting(){
 		// 1. InputStreamReaderを使い、入力待ち状態を作る。
@@ -58,6 +70,11 @@ public abstract class Display{
 		}
 	}
 
+	/*
+	 * ■selectorメソッドの処理内容
+	 * 1. waitingメソッドで代入された pressedKey フィールドを使い
+	 * 処理を振り分ける
+	 */
 	public void selector(){}
 
 }

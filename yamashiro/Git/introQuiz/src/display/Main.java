@@ -5,7 +5,9 @@ import sound.Music;
 public class Main {
 	public static void main(String[] args) throws InterruptedException {
 
+		// DtartDisplayをインスタンス化
 		Display startDisplay = new StartDisplay();
+		// 音楽を再生する為のクラス Music クラスインスタンス化
 		Music sound = new Music();
 
 		// sound.playLong("sample2.mp3");

@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"Display","h":"","u":""},{"l":"Main","h":"","u":""},{"l":"SoundReader","h":"","u":""},{"l":"StartDisplay","h":"","u":""},{"l":"すべてのクラス","h":"","u":"allclasses-index.html"}]
