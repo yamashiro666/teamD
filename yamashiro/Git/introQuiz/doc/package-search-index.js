@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"display","h":"","u":""},{"l":"すべてのパッケージ","h":"","u":"allpackages-index.html"}]

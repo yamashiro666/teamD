@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 // スーパークラス
-public class Display {
+public class Display implements Runnable{
 
 	void display(String filePath) {
 
