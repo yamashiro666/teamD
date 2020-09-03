@@ -1,3 +1,0 @@
-class AnswerSelectBeginner extends display{
-	
-}

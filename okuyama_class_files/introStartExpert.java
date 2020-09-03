@@ -1,3 +1,0 @@
-class IntroStartExpert extends display{
-	
-}

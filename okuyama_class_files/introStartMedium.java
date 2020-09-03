@@ -1,3 +1,0 @@
-class IntroStartMedium extends display{
-	
-}

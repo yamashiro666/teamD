@@ -54,7 +54,7 @@ public class Music extends Sounds implements SoundAdjustment{
 		}
 	}
 
-	// playLongメソッドをThreadで実行できるようにしたメソッド
+	// playMp3メソッドをThreadで実行できるようにしたメソッド
 	public Thread playMp3Thread(String filePath) {
 		Thread playLongThread = new Thread(() -> {
 			this.playMp3(filePath);

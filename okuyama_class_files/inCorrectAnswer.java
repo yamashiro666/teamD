@@ -1,3 +1,0 @@
-class InCorrectAnswer extends display{
-	
-}
