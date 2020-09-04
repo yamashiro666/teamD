@@ -23,7 +23,7 @@ public class SoundEffect extends Sounds{
 	Clip playWav(String path) {
 		setFilePath(new File(path));
 		//指定されたURLのオーディオ入力ストリームを取得
-		try (AudioInputStream ais = AudioSystem.getAudioInputStream(this.getFilePath())){
+		try (AudioInputStream ais = AudioSystem.getAudioInputStream(getFilePath())){
 
 			//ファイルの形式取得
 			AudioFormat af = ais.getFormat();

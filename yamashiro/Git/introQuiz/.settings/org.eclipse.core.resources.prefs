@@ -1,2 +1,15 @@
 eclipse.preferences.version=1
-encoding/startDisplay.java=MS932
+encoding//src/display1/Answer.java=MS932
+encoding//src/display1/CorrectAnswer.java=MS932
+encoding//src/display1/CountDown.java=MS932
+encoding//src/display1/CourseSlect.java=MS932
+encoding//src/display1/Display.java=MS932
+encoding//src/display1/Ending.java=MS932
+encoding//src/display1/InCorrectAnswer.java=MS932
+encoding//src/display1/IntroQuiz.java=MS932
+encoding//src/display1/IntroStartBeginner.java=MS932
+encoding//src/display1/IntroStartMedium.java=MS932
+encoding//src/display1/Main.java=MS932
+encoding//src/display1/Result.java=MS932
+encoding//src/display1/StartDisplay.java=MS932
+encoding//src/sound/Music.java=MS932

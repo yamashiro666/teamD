@@ -8,8 +8,8 @@ import javafx.scene.media.AudioClip;
 
 public class Music extends Sounds implements SoundAdjustment{
 
-	@Override
-	void playMp3(String path) {
+
+	static void playMp3(String path) {
 		setFilePath(new File(path));
 		AudioClip c = new AudioClip(getFilePath().toURI().toString());
 		c.play();
@@ -19,8 +19,8 @@ public class Music extends Sounds implements SoundAdjustment{
 	public void playLong(String filePath) {
 
 		try {
-			this.playMp3(filePath);
-			// ï¼“ç§’é–“å†ç”Ÿã™ã‚‹
+			playMp3(filePath);
+			// ‚R•bŠÔÄ¶‚·‚é
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 
@@ -33,8 +33,8 @@ public class Music extends Sounds implements SoundAdjustment{
 	public void playMiddle(String filePath) {
 
 		try {
-			this.playMp3(filePath);
-			// 1.5ç§’é–“å†ç”Ÿã™ã‚‹
+			playMp3(filePath);
+			// 1.5•bŠÔÄ¶‚·‚é
 			Thread.sleep(1500);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
@@ -45,8 +45,8 @@ public class Music extends Sounds implements SoundAdjustment{
 	public void playShort(String filePath) {
 
 		try {
-			this.playMp3(filePath);
-			// 0.5ç§’é–“å†ç”Ÿã™ã‚‹
+			playMp3(filePath);
+			// 0.5•bŠÔÄ¶‚·‚é
 			Thread.sleep(500);
 
 		} catch (InterruptedException e) {
@@ -54,21 +54,21 @@ public class Music extends Sounds implements SoundAdjustment{
 		}
 	}
 
-	// playMp3ãƒ¡ã‚½ãƒƒãƒ‰ã‚’Threadã§å®Ÿè¡Œã§ãã‚‹ã‚ˆã†ã«ã—ãŸãƒ¡ã‚½ãƒƒãƒ‰
-	public Thread playMp3Thread(String filePath) {
+	// playMp3ƒƒ\ƒbƒh‚ðThread‚ÅŽÀs‚Å‚«‚é‚æ‚¤‚É‚µ‚½ƒƒ\ƒbƒh
+	public static Thread playMp3Thread(String filePath) {
 		Thread playLongThread = new Thread(() -> {
-			this.playMp3(filePath);
+			playMp3(filePath);
 //			try {
 //				Thread.sleep(8000);
 //			} catch (InterruptedException e) {
-//				// TODO è‡ªå‹•ç”Ÿæˆã•ã‚ŒãŸ catch ãƒ–ãƒ­ãƒƒã‚¯
+//				// TODO Ž©“®¶¬‚³‚ê‚½ catch ƒuƒƒbƒN
 //				e.printStackTrace();
 //			}
 		});
 		return playLongThread;
 	}
 
-	// playLongãƒ¡ã‚½ãƒƒãƒ‰ã‚’Threadã§å®Ÿè¡Œã§ãã‚‹ã‚ˆã†ã«ã—ãŸãƒ¡ã‚½ãƒƒãƒ‰
+	// playLongƒƒ\ƒbƒh‚ðThread‚ÅŽÀs‚Å‚«‚é‚æ‚¤‚É‚µ‚½ƒƒ\ƒbƒh
 	public Thread playLongThread(String filePath) {
 		Thread playLongThread = new Thread(() -> {
 			this.playLong(filePath);
@@ -76,7 +76,7 @@ public class Music extends Sounds implements SoundAdjustment{
 		return playLongThread;
 	}
 
-	// playMiddleãƒ¡ã‚½ãƒƒãƒ‰ã‚’Threadã§å®Ÿè¡Œã§ãã‚‹ã‚ˆã†ã«ã—ãŸãƒ¡ã‚½ãƒƒãƒ‰
+	// playMiddleƒƒ\ƒbƒh‚ðThread‚ÅŽÀs‚Å‚«‚é‚æ‚¤‚É‚µ‚½ƒƒ\ƒbƒh
 	public Thread playMiddleThread(String filePath) {
 		Thread playMidlleThread = new Thread(() -> {
 			this.playMiddle(filePath);

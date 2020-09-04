@@ -57,6 +57,10 @@ public class Selector {
 	    return fileNameList;
 	}
 
+	/*
+	 * fileRomdomSelector()メソッド
+	 * fileNameListフィールド
+	 */
 	String fileRomdomSelector() {
 		Random random = new Random();
 		int rondomNum = random.nextInt(this.getFileNameList().size());

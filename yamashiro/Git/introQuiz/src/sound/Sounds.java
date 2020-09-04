@@ -7,19 +7,19 @@ import javax.sound.sampled.Clip;
 public class Sounds {
 
 	// 音声ファイルのパスを表すフィールド
-	private File filePath;
+	private static File filePath;
 
-	void playMp3(String path) {}
+	static void playMp3(String path) {}
 
 	Clip playWav(String path) {
 		return null;
 	}
 
-	public File getFilePath() {
-		return this.filePath;
+	public static File getFilePath() {
+		return filePath;
 	}
 
-	public void setFilePath(File path) {
-		this.filePath = path;
+	static public void setFilePath(File path) {
+		filePath = path;
 	}
 }
