@@ -1,8 +1,8 @@
 package display1;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
@@ -32,10 +32,14 @@ public class Display{
 		StringBuffer strBuffer = new StringBuffer();
 
 		try {
+
+			FileInputStream is = new FileInputStream(filePath);
+            InputStreamReader in = new InputStreamReader(is, "SJIS");
 			// 1. FileReader でリーダー作成
-			FileReader fileReader = new FileReader(filePath);
+			// FileReader fileReader = new FileReader(filePath);
+			// System.out.println(in.getEncoding());
 			// 2. 1で作成したオブジェクトを BufferedReader でラップする
-			BufferedReader bufferedReader = new BufferedReader(fileReader);
+			BufferedReader bufferedReader = new BufferedReader(in);
             String data;
 
             // 3. BufferedReader の readLineメソッドで 1行単位で読み込み
@@ -48,6 +52,7 @@ public class Display{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
 		// 4. コマンドプロンプトへ出力
 		System.out.println(strBuffer);
 	}

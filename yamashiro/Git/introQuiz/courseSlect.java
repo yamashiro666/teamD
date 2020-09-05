@@ -1,3 +1,0 @@
-class CourseSlect extends  Display{
-	
-}

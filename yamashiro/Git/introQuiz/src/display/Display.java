@@ -7,38 +7,38 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 
-// ã‚¹ãƒ¼ãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹
+// ƒX[ƒp[ƒNƒ‰ƒX
 public abstract class Display{
 
-	// ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ãŒæŠ¼ã—ãŸã‚­ãƒ¼ã‚’ä¿æŒã™ã‚‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰
+	// ƒvƒŒƒCƒ„[‚ª‰Ÿ‚µ‚½ƒL[‚ğ•Û‚·‚éƒtƒB[ƒ‹ƒh
 	private char pressedKey;
 
-	// pressedKey ã‚’å–å¾—ã™ã‚‹ç‚ºã®ãƒ¡ã‚½ãƒƒãƒ‰
+	// pressedKey ‚ğæ“¾‚·‚éˆ×‚Ìƒƒ\ƒbƒh
 	public char getPressedKey() {
 		return this.pressedKey;
 	}
 
 	/**
-	 *  â– displayãƒ¡ã‚½ãƒƒãƒ‰ã®å‡¦ç†å†…å®¹
-	 *  1. FileReader ã§ãƒªãƒ¼ãƒ€ãƒ¼ä½œæˆ
-	 *  2. 1ã§ä½œæˆã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ BufferedReader ã§ãƒ©ãƒƒãƒ—ã™ã‚‹
-	 *  3. BufferedReader ã® readLineãƒ¡ã‚½ãƒƒãƒ‰ã§ 1è¡Œå˜ä½ã§èª­ã¿è¾¼ã¿
-	 *  4. ã‚³ãƒãƒ³ãƒ‰ãƒ—ãƒ­ãƒ³ãƒ—ãƒˆã¸å‡ºåŠ›
+	 *  ¡displayƒƒ\ƒbƒh‚Ìˆ—“à—e
+	 *  1. FileReader ‚ÅƒŠ[ƒ_[ì¬
+	 *  2. 1‚Åì¬‚µ‚½ƒIƒuƒWƒFƒNƒg‚ğ BufferedReader ‚Åƒ‰ƒbƒv‚·‚é
+	 *  3. BufferedReader ‚Ì readLineƒƒ\ƒbƒh‚Å 1s’PˆÊ‚Å“Ç‚İ‚İ
+	 *  4. ƒRƒ}ƒ“ƒhƒvƒƒ“ƒvƒg‚Öo—Í
 	 *
-	 *  @param filePath ãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹
+	 *  @param filePath ƒeƒLƒXƒgƒtƒ@ƒCƒ‹‚ÌƒpƒX
 	 */
 	public void display(String filePath) {
 
 		StringBuffer strBuffer = new StringBuffer();
 
 		try {
-			// 1. FileReader ã§ãƒªãƒ¼ãƒ€ãƒ¼ä½œæˆ
+			// 1. FileReader ‚ÅƒŠ[ƒ_[ì¬
 			FileReader fileReader = new FileReader(filePath);
-			// 2. 1ã§ä½œæˆã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ BufferedReader ã§ãƒ©ãƒƒãƒ—ã™ã‚‹
+			// 2. 1‚Åì¬‚µ‚½ƒIƒuƒWƒFƒNƒg‚ğ BufferedReader ‚Åƒ‰ƒbƒv‚·‚é
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String data;
 
-            // 3. BufferedReader ã® readLineãƒ¡ã‚½ãƒƒãƒ‰ã§ 1è¡Œå˜ä½ã§èª­ã¿è¾¼ã¿
+            // 3. BufferedReader ‚Ì readLineƒƒ\ƒbƒh‚Å 1s’PˆÊ‚Å“Ç‚İ‚İ
             while ((data = bufferedReader.readLine()) != null) {
             	strBuffer.append(data);
             }
@@ -48,21 +48,21 @@ public abstract class Display{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		// 4. ã‚³ãƒãƒ³ãƒ‰ãƒ—ãƒ­ãƒ³ãƒ—ãƒˆã¸å‡ºåŠ›
+		// 4. ƒRƒ}ƒ“ƒhƒvƒƒ“ƒvƒg‚Öo—Í
 		System.out.println(strBuffer);
 	}
 
 	/**
-	 *  â– waiting()ãƒ¡ã‚½ãƒƒãƒ‰ã®å‡¦ç†å†…å®¹
-	 *  1. InputStreamReaderã‚’ä½¿ã„ã€å…¥åŠ›å¾…ã¡çŠ¶æ…‹ã‚’ä½œã‚‹ã€‚
-	 *  2. æŠ¼ã•ã‚ŒãŸã‚­ãƒ¼ã‚’ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ pressedKey ã«ä»£å…¥ã™ã‚‹ã€‚
+	 *  ¡waiting()ƒƒ\ƒbƒh‚Ìˆ—“à—e
+	 *  1. InputStreamReader‚ğg‚¢A“ü—Í‘Ò‚¿ó‘Ô‚ğì‚éB
+	 *  2. ‰Ÿ‚³‚ê‚½ƒL[‚ğƒtƒB[ƒ‹ƒh pressedKey ‚É‘ã“ü‚·‚éB
 	 */
 	public void waiting(){
-		// 1. InputStreamReaderã‚’ä½¿ã„ã€å…¥åŠ›å¾…ã¡çŠ¶æ…‹ã‚’ä½œã‚‹ã€‚
+		// 1. InputStreamReader‚ğg‚¢A“ü—Í‘Ò‚¿ó‘Ô‚ğì‚éB
 		Reader reader = new InputStreamReader(System.in);
 
 		try {
-			// 2. æŠ¼ã•ã‚ŒãŸã‚­ãƒ¼ã‚’ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ pressedKey ã«ä»£å…¥ã™ã‚‹ã€‚
+			// 2. ‰Ÿ‚³‚ê‚½ƒL[‚ğƒtƒB[ƒ‹ƒh pressedKey ‚É‘ã“ü‚·‚éB
 			this.pressedKey = (char)reader.read();
 			reader.close();
 		} catch (IOException e) {
@@ -71,9 +71,9 @@ public abstract class Display{
 	}
 
 	/*
-	 * â– selectorãƒ¡ã‚½ãƒƒãƒ‰ã®å‡¦ç†å†…å®¹
-	 * 1. waitingãƒ¡ã‚½ãƒƒãƒ‰ã§ä»£å…¥ã•ã‚ŒãŸ pressedKey ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’ä½¿ã„
-	 * å‡¦ç†ã‚’æŒ¯ã‚Šåˆ†ã‘ã‚‹
+	 * ¡selectorƒƒ\ƒbƒh‚Ìˆ—“à—e
+	 * 1. waitingƒƒ\ƒbƒh‚Å‘ã“ü‚³‚ê‚½ pressedKey ƒtƒB[ƒ‹ƒh‚ğg‚¢
+	 * ˆ—‚ğU‚è•ª‚¯‚é
 	 */
 	public void selector(){}
 

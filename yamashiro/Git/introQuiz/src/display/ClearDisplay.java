@@ -6,20 +6,20 @@ import java.io.InputStreamReader;
 
 public class ClearDisplay {
 	public ClearDisplay(){
-//		// ProcessBuilderã®ç”Ÿæˆ
-//		// helloworld.batã®stdinã¨stderrã‚’è¦ªãƒ—ãƒ­ã‚»ã‚¹ã®stdinã¨stderrã«ã¤ãªãã€‚
+//		// ProcessBuilder‚Ì¶¬
+//		// helloworld.bat‚Ìstdin‚Æstderr‚ğeƒvƒƒZƒX‚Ìstdin‚Æstderr‚É‚Â‚È‚®B
 //		ProcessBuilder processBuilder = new ProcessBuilder("test.command");
 //		processBuilder.redirectOutput(ProcessBuilder.Redirect.INHERIT);
 //		processBuilder.redirectError(ProcessBuilder.Redirect.INHERIT);
 //
-//		// Processã®ç”Ÿæˆ
-//		// helloworld.batã‚’å­ãƒ—ãƒ­ã‚»ã‚¹ã¨ã—ã¦å®Ÿè¡Œã—ã€ãƒ—ãƒ­ã‚»ã‚¹å®Ÿè¡ŒãŒçµ‚ã‚ã‚‹ã¾ã§è¦ªã‚¹ãƒ¬ãƒƒãƒ‰ã‚’åœæ­¢ã™ã‚‹ã€‚
+//		// Process‚Ì¶¬
+//		// helloworld.bat‚ğqƒvƒƒZƒX‚Æ‚µ‚ÄÀs‚µAƒvƒƒZƒXÀs‚ªI‚í‚é‚Ü‚ÅeƒXƒŒƒbƒh‚ğ’â~‚·‚éB
 //		Process process;
 //		try {
 //			process = processBuilder.start();
 //			process.waitFor();
 //		} catch (IOException | InterruptedException e) {
-//			// TODO è‡ªå‹•ç”Ÿæˆã•ã‚ŒãŸ catch ãƒ–ãƒ­ãƒƒã‚¯
+//			// TODO ©“®¶¬‚³‚ê‚½ catch ƒuƒƒbƒN
 //			e.printStackTrace();
 //		}
 		try {

@@ -13,8 +13,6 @@ class CourseSlect extends  Display{
 		}else if(getPressedKey() == 'b' || getPressedKey() == 'B'){  //IntroStartBeginnerをインスタンス生成及び表示
 
 			IntroStartBeginner isb = new IntroStartBeginner();
-			CountDown cd = new CountDown();
-			cd.display("textfile/Countdown1.txt");
 			isb.display("textfile/IntroStartBeginner.txt");
 			isb.input();
 			isb.selector();

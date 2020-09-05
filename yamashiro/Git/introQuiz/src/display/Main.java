@@ -8,10 +8,10 @@ public class Main {
 		// DtartDisplayをインスタンス化
 		Display startDisplay = new StartDisplay();
 		// 音楽を再生する為のクラス Music クラスインスタンス化
-		Music sound = new Music();
+		// Music sound = new Music();
 
 		// sound.playLong("sample2.mp3");
-		sound.playMp3Thread("sample2.mp3").start();
+		Music.playMp3Thread("sample2.mp3").start();
 		startDisplay.display("StartDisplay.txt");
 
 		startDisplay.waiting();
