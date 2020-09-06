@@ -158,10 +158,14 @@ class IntroStartBeginner extends Answer{
 	@Override
 	public void selector(){
 
-		// 選択肢の中から答えを検索してcharCorrectAnswerに代入
+		// mp3のファイル名 をキーに 曲目リスト から 正解の文字列 を取得
+		String linkedTextToMp3 = linkedMp3.get(answerMp3);
+
+		// 4択の配列の数分for文を回し、選択肢の中から答えを検索してcharCorrectAnswerに代入
 		for(int i = 0; i < answers.length; i++) {
-			if(answerMp3.equals(answers[i]) ) {
+			if(linkedTextToMp3.equals(answers[i])) {
 				charCorrectAnswer = tmpAnswer.get(answers[i]);
+				System.out.println(answers[i]);
 			}
 		}
 
@@ -174,7 +178,7 @@ class IntroStartBeginner extends Answer{
 
 			//if(answerNum == 0) {
 				CorrectAnswer correct = new CorrectAnswer();
-				correct.display("textfile/Correct.txt");
+				correct.display("textfile/CorrectAnswer.txt");
 				System.out.println("Test_Display_Correct");
 				correct.count(1); //正解数をカウントする
 				correct.input();

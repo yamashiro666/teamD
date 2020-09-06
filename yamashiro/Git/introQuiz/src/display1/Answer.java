@@ -20,6 +20,6 @@ class Answer extends Display{
 
 	String[] answers;
 
-	char charCorrectAnswer;
+	int charCorrectAnswer;
 
 }
