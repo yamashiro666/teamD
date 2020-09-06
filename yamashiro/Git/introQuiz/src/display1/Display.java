@@ -13,6 +13,9 @@ public class Display{
 	// プレイヤーが押したキーを保持するフィールド
 	private char pressedKey;
 
+	private BufferedReader bufferedReader;
+	private Reader reader;
+
 	// pressedKey を取得する為のメソッド
 	public char getPressedKey() {
 		return this.pressedKey;
@@ -39,7 +42,7 @@ public class Display{
 			// FileReader fileReader = new FileReader(filePath);
 			// System.out.println(in.getEncoding());
 			// 2. 1で作成したオブジェクトを BufferedReader でラップする
-			BufferedReader bufferedReader = new BufferedReader(in);
+            bufferedReader = new BufferedReader(in);
             String data;
 
             // 3. BufferedReader の readLineメソッドで 1行単位で読み込み
@@ -64,14 +67,20 @@ public class Display{
 	 */
 	public void input(){
 		// 1. InputStreamReaderを使い、入力待ち状態を作る。
-		Reader reader = new InputStreamReader(System.in);
+		reader = new InputStreamReader(System.in);
 
 		try {
 			// 2. 押されたキーをフィールド pressedKey に代入する。
-			this.pressedKey = (char)reader.read();
+
+			while(reader.ready()) {
+				this.pressedKey = (char)reader.read();
+				
+			}
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
 	}
 
 	/*
@@ -81,4 +90,16 @@ public class Display{
 	 */
 	public void selector(){}
 
+	// ゲーム終了時(Exit画面表示時)にストリームを閉じる
+	public void streamClose() {
+		try {
+			if (bufferedReader != null) {
+				bufferedReader.close();
+				reader.close();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 }
+

@@ -29,7 +29,7 @@ public class Music extends Sounds implements SoundAdjustment{
 
 	}
 
-	@Override
+
 	public void playMiddle(String filePath) {
 
 		try {
@@ -71,7 +71,7 @@ public class Music extends Sounds implements SoundAdjustment{
 	// playLongメソッドをThreadで実行できるようにしたメソッド
 	public Thread playLongThread(String filePath) {
 		Thread playLongThread = new Thread(() -> {
-			this.playLong(filePath);
+			playLong(filePath);
 		});
 		return playLongThread;
 	}
@@ -79,7 +79,7 @@ public class Music extends Sounds implements SoundAdjustment{
 	// playMiddleメソッドをThreadで実行できるようにしたメソッド
 	public Thread playMiddleThread(String filePath) {
 		Thread playMidlleThread = new Thread(() -> {
-			this.playMiddle(filePath);
+			playMiddle(filePath);
 		});
 		return playMidlleThread;
 	}

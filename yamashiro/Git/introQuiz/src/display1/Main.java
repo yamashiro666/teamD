@@ -19,6 +19,7 @@ public class Main {
 
 		startDisplay.input();
 
+
 		// ProcessBuilderクラスを使いコマンドプロンプトの画面をクリアするコマンドを実行
 		// する予定だけど、まだうまくいってない...
 		// new ClearDisplay();

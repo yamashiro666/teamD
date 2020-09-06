@@ -1,5 +1,7 @@
 package display1;
 
+import sound.Music;
+
 class IntroStartExpert extends Answer{
 //
 //	//音声ファイルの一次元配列15種類の音声ファイルリストを準備する
@@ -18,6 +20,24 @@ class IntroStartExpert extends Answer{
 //		//音声ファイルの再生中に♪を表示する
 //		//音声ファイル再生後、入力待ちの状態を作り、「答えを入力してください」と表示する
 //	}
+
+
+	@Override
+	public void display(String path){
+
+		// カウントダウン画面を表示する & 音声ファイルの再生中に♪を表示する
+		CountDown cd = new CountDown();
+		cd.display("textfile/Countdown1.txt");
+
+		answerMp3 = songsFileName[randomNum];
+
+		// カウントダウン後、音声ファイルをランダムで選択し再生する
+		// playMp3メソッドはstaticメソッドにしました。
+		Music.playMp3Thread("ongen/" + answerMp3).start();  //songFileName[]のいずれかを再生
+
+		super.shuffle4Taku();
+	}
+
 //
 //	@override
 //	void selector(){
