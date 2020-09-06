@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 
 public class RobotTest {
 	public static void main(String[] args) {
+		@SuppressWarnings("unused")
 		ProcessBuilder pbAppleScript = new ProcessBuilder();
 		try {
 		        Robot robot = new Robot();

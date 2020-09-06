@@ -70,17 +70,14 @@ public class Display{
 		reader = new InputStreamReader(System.in);
 
 		try {
-			// 2. 押されたキーをフィールド pressedKey に代入する。
 
-			while(reader.ready()) {
+			// 2. 押されたキーをフィールド pressedKey に代入する。
 				this.pressedKey = (char)reader.read();
-				
-			}
 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	/*

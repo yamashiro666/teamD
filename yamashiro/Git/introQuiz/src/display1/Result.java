@@ -5,9 +5,11 @@ class Result extends Display{
 	@Override
 	public void display(String path){
 
+
+		//正解数と不正解数を表示する
 		System.out.println("結果発表");
-		System.out.println("正解数 : " + Answer.correctNum);
-		System.out.println("不正解数 : " + Answer.inCorrectNum);
+		System.out.println("あなたの成績は 正解 " +  Answer.correctNum + " 不正解 " + Answer.inCorrectNum + " です");
+
 
 		// おまけ: 正解数に応じて評価画面を出す
 		if(Answer.correctNum == 5) {
@@ -25,7 +27,7 @@ class Result extends Display{
 		}else if(Answer.correctNum < 3) {
 
 			// 評価画面のクラスを作ってdisplayメソッドで呼び出し
-			System.out.println("マツコ「くぁｆえｊんｎねｆっｄｄ！！！」");
+			System.out.println("マツコ「くぁｆえｊんｎねｆっｄｄ！」");
 		}
 
 	}

@@ -59,7 +59,8 @@ public class Selector {
 
 	/*
 	 * fileRomdomSelector()メソッド
-	 * fileNameListフィールド
+	 * getTxtFileNameListメソッドで取得したフォルダにあるファイル名の一覧をランダムで
+	 * ひとつ選択するメソッド
 	 */
 	String fileRomdomSelector() {
 		Random random = new Random();
@@ -68,6 +69,10 @@ public class Selector {
 		return getFileNameList().get(rondomNum);
 	}
 
+
+	/*
+	 *
+	 */
 	Map<String, String> fileOpen() {
 
 		Map<String, String> list = new HashMap<>();
