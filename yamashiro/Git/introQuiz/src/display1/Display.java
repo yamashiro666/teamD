@@ -1,11 +1,11 @@
 package display1;
 
 import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.io.UnsupportedEncodingException;
 
 // スーパークラス
 public class Display{
@@ -32,29 +32,62 @@ public class Display{
 	 */
 	public void display(String filePath) {
 
+
+		String tmp = null;
 		StringBuffer strBuffer = new StringBuffer();
 
-		try {
+		InputStream ips1 = ClassLoader.getSystemResourceAsStream(filePath);
+		// System.out.println(ClassLoader.getSystemResource(filePath));
 
-			FileInputStream is = new FileInputStream(filePath);
-            InputStreamReader in = new InputStreamReader(is, "SJIS");
-			// 1. FileReader でリーダー作成
-			// FileReader fileReader = new FileReader(filePath);
-			// System.out.println(in.getEncoding());
-			// 2. 1で作成したオブジェクトを BufferedReader でラップする
-            bufferedReader = new BufferedReader(in);
-            String data;
+		try {
+			BufferedReader br = new BufferedReader(new InputStreamReader(ips1, "SJIS"));
+
+			while ((tmp = br.readLine()) != null) {
+				strBuffer.append(tmp + "\n");
+	         }
+
+		} catch (UnsupportedEncodingException e1) {
+
+			e1.printStackTrace();
+
+		} catch (IOException e) {
+
+			e.printStackTrace();
+
+		}
+
+		// クラスパスを指定して読み込むパターン
+		// InputStream input = getClass().getResourceAsStream(filePath);
+
+
+//		try {
+
+//			BufferedInputStream bis =
+//				     new BufferedInputStream(getClass().getResourceAsStream(filePath));
+
+			// 通常のFileInputStreamを使用して読み込むパターン
+			// FileInputStream is = new FileInputStream(filePath);
+
+            // InputStreamReader in = new InputStreamReader(ips1, "SJIS");
+			/**
+			*  1. FileReader でリーダー作成
+			*  FileReader fileReader = new FileReader(filePath);
+			* System.out.println(in.getEncoding());
+			* 2. 1で作成したオブジェクトを BufferedReader でラップする
+			*/
+            // bufferedReader = new BufferedReader(in);
+            // String data;
 
             // 3. BufferedReader の readLineメソッドで 1行単位で読み込み
-            while ((data = bufferedReader.readLine()) != null) {
-            	strBuffer.append(data + "\n");
-            }
+            // while ((data = bufferedReader.readLine()) != null) {
+            // 	strBuffer.append(data + "\n");
+            // }
 
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+//		} catch (FileNotFoundException e) {
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 
 		// 4. コマンドプロンプトへ出力
 		System.out.println(strBuffer);
