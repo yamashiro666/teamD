@@ -1,3 +1,7 @@
+/*
+ * 9月9日追記
+ * ・カウントダウンの音再生はCountDownクラス内でまとめて処理できるように変更
+ */
 package display1;
 
 class InCorrectAnswer extends Answer{
@@ -13,35 +17,69 @@ class InCorrectAnswer extends Answer{
 
 	@Override
 	public void selector(){
-		if(getPressedKey() == 'e' || getPressedKey() == 'E'){  //Exitをインスタンス生成及び表示
+		if(getPressedKey() == '2'){  //Exitをインスタンス生成及び表示
 
 			Exit exit = new Exit();
 			exit.display("Exit.txt");
 
-		}else if((getPressedKey() == 'n' || getPressedKey() == 'N') && answerNum == 5){  //Resultをインスタンス生成及び表示
+		}else if(getPressedKey() == '1' && answerNum == 5){  //Resultをインスタンス生成及び表示
 
 			Result rst = new Result();
-			rst.display("Result.txt");
+
+			// 正解数に応じて評価画面を出す
+			if(Answer.correctNum == 5) {
+
+				// 評価画面のクラスを作ってdisplayメソッドで呼び出し
+				rst.display("textfile/Result1.txt"); //テキストファイルの作成が必要
+				System.out.println("マツコ「上出来だわ」");
+
+			}else if(Answer.correctNum == 4) {
+
+				// 評価画面のクラスを作ってdisplayメソッドで呼び出し
+				rst.display("textfile/Result2.txt"); //テキストファイルの作成が必要
+				System.out.println("マツコ「なかなかやるわね」");
+
+			}else if(Answer.correctNum == 3) {
+
+				// 評価画面のクラスを作ってdisplayメソッドで呼び出し
+				rst.display("textfile/Result3.txt"); //テキストファイルの作成が必要
+				System.out.println("マツコ「もっとがんばりなさい」");
+
+			}else if(Answer.correctNum < 3) {
+
+				// 評価画面のクラスを作ってdisplayメソッドで呼び出し
+				rst.display("textfile/Result4.txt"); //テキストファイルの作成が必要
+				System.out.println("マツコ「くぁｆえｊんｎねｆっｄｄ！」");
+			}
+
+
+			//正解数と不正解数を表示する
+			System.out.println("結果発表");
+			System.out.println("あなたの成績は 正解 " +  Answer.correctNum + " 不正解 " + Answer.inCorrectNum + " です");
+			System.out.println();
+			System.out.println("1：ＮＥＸＴ");
+			System.out.println("2：ＥＸＩＴ");
+
 			rst.input();
 			rst.selector();
 
-		}else if((getPressedKey() == 'n' || getPressedKey() == 'N') && answerNum < 5 && courseLevel == 1){  //IntroStartBeginnerをインスタンス生成及び表示
+		}else if(getPressedKey() == '1' && answerNum < 5 && courseLevel == 1){  //IntroStartBeginnerをインスタンス生成及び表示
 
-			IntroStartBeginner isb = new IntroStartBeginner();
+			Answer isb = new IntroStartBeginner();
 			isb.display("IntroStartBeginner.txt");
 			isb.input();
 			isb.selector();
 
-		}else if((getPressedKey() == 'n' || getPressedKey() == 'N') && answerNum < 5 && courseLevel == 2){  //IntroStartMediumをインスタンス生成及び表示
+		}else if(getPressedKey() == '1' && answerNum < 5 && courseLevel == 2){  //IntroStartMediumをインスタンス生成及び表示
 
-			IntroStartMedium ism = new IntroStartMedium();
+			Answer ism = new IntroStartMedium();
 			ism.display("IntroStartMedium.txt");
 			ism.input();
 			ism.selector();
 
-		}else if((getPressedKey() == 'n' || getPressedKey() == 'N') && answerNum < 5 && courseLevel == 3){  //IntroStartExpertをインスタンス生成及び表示
+		}else if(getPressedKey() == '1' && answerNum < 5 && courseLevel == 3){  //IntroStartExpertをインスタンス生成及び表示
 
-			IntroStartExpert ise = new IntroStartExpert();
+			Answer ise = new IntroStartExpert();
 			ise.display("IntroStartExpert.txt");
 			ise.input();
 			ise.selector();

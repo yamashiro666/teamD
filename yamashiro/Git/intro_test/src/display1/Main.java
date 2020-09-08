@@ -14,7 +14,9 @@ public class Main {
 		// DtartDisplayをインスタンス化
 		StartDisplay startDisplay = new StartDisplay();
 
-		Music.playMp3Thread("sample2.mp3").start();
+		Music sound = new Music();
+
+		sound.playMp3Thread("music1.mp3").start();
 		startDisplay.display("StartDisplay.txt");
 
 		startDisplay.input();

@@ -1,6 +1,10 @@
 package sound;
 
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.util.regex.Pattern;
 
 import javafx.scene.media.AudioClip;
 
@@ -9,17 +13,28 @@ import javafx.scene.media.AudioClip;
 public class Music extends Sounds implements SoundAdjustment{
 
 
-	static void playMp3(String path) {
-
-
+	public void playMp3(String path) {
 
 		URL pathToMp3 = ClassLoader.getSystemResource(path);
 
-		// InputStream ips1 = ClassLoader.getSystemResourceAsStream(path);
-
-		// setFilePath(new File(pathToMp3));
-		AudioClip c = new AudioClip(pathToMp3.toString());
-		c.play();
+		String encodedURL ;
+		String decodedURL;
+		try {
+			Pattern p = Pattern.compile("%2520");
+			// URLをデコードする処理
+			String encodedTmpURL = URLEncoder.encode(pathToMp3.toString(), "UTF-8");
+			System.out.println(encodedTmpURL.replace("file%3A%2F", ""));
+			encodedURL = encodedTmpURL.replace("file%3A", "");
+			encodedURL = encodedURL.replace(p.pattern(), "%20");
+			encodedURL = encodedURL.replace("25", "");
+			System.out.println(encodedURL);
+			decodedURL = URLDecoder.decode(encodedURL , "UTF-8");
+			AudioClip c = new AudioClip(pathToMp3.toString());
+			c.setVolume(1);
+			c.play();
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -62,7 +77,7 @@ public class Music extends Sounds implements SoundAdjustment{
 	}
 
 	// playMp3メソッドをThreadで実行できるようにしたメソッド
-	public static Thread playMp3Thread(String filePath) {
+	public Thread playMp3Thread(String filePath) {
 		Thread playLongThread = new Thread(() -> {
 			playMp3(filePath);
 //			try {

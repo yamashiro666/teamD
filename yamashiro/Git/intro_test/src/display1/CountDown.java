@@ -6,6 +6,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import sound.Music;
+import sound.Sounds;
+
 
 class CountDown extends Display{
 
@@ -15,6 +18,9 @@ class CountDown extends Display{
 
 	@Override
 	public void display(String filePath){
+
+		Sounds sound = new Music();
+		sound.playMp3("Countdown06-2.mp3");
 		try{
 
 			InputStream ips1 = ClassLoader.getSystemResourceAsStream(filePath);
@@ -29,7 +35,7 @@ class CountDown extends Display{
 				strBuffer.append(br.readLine()+'\n');
 				if(count % 64 == 0){
 					try{
-					Thread.sleep(1000);
+					Thread.sleep(1090);
 					}catch(InterruptedException e){
 						e.printStackTrace();
 					}

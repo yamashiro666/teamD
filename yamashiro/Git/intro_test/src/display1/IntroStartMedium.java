@@ -1,53 +1,55 @@
 package display1;
 
+import java.util.Random;
+import java.util.Set;
+
+import selector.LinkFileNameToMp3;
 import sound.Music;
 
 class IntroStartMedium extends Answer{
 
-//	//音声ファイルの一次元配列15種類の音声ファイルリストを準備する
-//
-//	//{正解曲名, 不正解曲名, 不正解曲名, 不正解曲名}の2次元配列15種類の曲目リストを準備する
-//	String[][] songs = {
-//		{"正解曲名", "不正解曲名", "不正解曲名", "不正解曲名"},
-//		{"正解曲名", "不正解曲名", "不正解曲名", "不正解曲名"},
-//		// ～15種類
-//	};
-
 	@Override
-	public void display(String path){
+	public void display(String path) {
 
 		// カウントダウン画面を表示する & 音声ファイルの再生中に♪を表示する
 		CountDown cd = new CountDown();
 		cd.display("Countdown1.txt");
 
-		answerMp3 = songsFileName[randomNum];
 
-		// カウントダウン後、音声ファイルをランダムで選択し再生する
-		// playMp3メソッドはstaticメソッドにしました。
-		Music.playMp3Thread("ongen/" + answerMp3).start();  //songFileName[]のいずれかを再生
+		// ■LinkFileNameToMp3 クラスで以下の処理を行う
+		// 1. music_title.txt からランダムで mp3 ファイル名を取得してmp3再生
+		// 2. 再生したmp3ファイル名の曲名を取得
+		// 3. 2で取得した曲名をanswerに代入
+		LinkFileNameToMp3 linkFileNameList = new LinkFileNameToMp3("music_title.txt");
+
+		Set<String> mapToSet = linkFileNameList.linkedList.keySet();
+		String musicTitleName = null;
+
+		// Map<>からSetに変換し、その中からランダムで要素を一つ選ぶ
+		int size = linkFileNameList.linkedList.keySet().size();
+		int item = new Random().nextInt(size);
+		int i = 0;
+		for(String tmpMusicTitleName : mapToSet)
+		{
+		    if (i == item)
+		    	// ここでランダムでMap<String, String> linkedList の mp3ファイルのパスをランダムで選ぶ
+		    	// それを musicTitleName に入れる
+		        musicTitleName = tmpMusicTitleName;
+		    i++;
+		}
+
+		// ランダムに答えのmp3を選び randomCorrectedMp3 に代入
+		randomCollectedMp3 = linkFileNameList.linkedList.get(musicTitleName);
+
+		// randomCorrectedMp3 に対応する 曲名を randomCorrectedAnswer に代入
+		randomCollectedAnswer = LinkFileNameToMp3.getKeysByValue(linkFileNameList.linkedList, randomCollectedMp3).stream().findFirst().get();
+
+		// カウントダウン後、randomCollectedMp3フィールドを使い、音声ファイルをランダムで選択し再生する
+
+		Music music = new Music();
+		music.playMp3Thread(randomCollectedMp3).start();
 
 		super.shuffle4Taku();
-	}
 
-//	@Override
-//	public void selector(){
-//		if(getPressedKey() == 0){  //exit.txtを表示
-//			Exit exit = new Exit();
-//			exit.display("Exit.txt");
-//		}else if(getPressedKey() == songs[i][0]){  //correctAnswerをインスタンス生成及び表示
-//			if(super.correctCount.length == 0)CorrectAnswer correct = new CorrectAnswer();
-//			correct.display("correct.txt");
-//			correct.count();
-//			correct.input();
-//			correct.selector();
-//		}else if(args[0] == songs[i][1] || args[0] == songs[i][2] || args[0] == songs[i][3]){  //inCorrectAnswerをインスタンス生成及び表示
-//			if(super.inCorrectCount.length == 0)InCorrectAnswer incorrect = new InCorrectAnswer();
-//			incorrect.display("inCorrectAnswer.txt");
-//			incorrect.count();
-//			incorrect.input();
-//			incorrect.selector();
-//		}else{
-//			System.out.println("適切な数値を入力してください。");
-//		}
-//	}
+	}
 }

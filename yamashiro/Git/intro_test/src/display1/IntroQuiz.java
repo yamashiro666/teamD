@@ -6,9 +6,9 @@ public class IntroQuiz{
 	public static void main(String[] args) throws InterruptedException {
 
 		StartDisplay start = new StartDisplay();
-		// Music sound = new Music();
+		Music sound = new Music();
 
-		Music.playMp3Thread("sample2.mp3").start(); //sample2.mp3を再生
+		sound.playMp3Thread("music2.mp3").start();
 
 		start.display("StartDisplay.txt");  //StartDisplay.txtを表示
 		start.input();  //キーボード入力待ち

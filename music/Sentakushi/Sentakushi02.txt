@@ -1,7 +1,18 @@
-AKB48 ã€Œãƒ˜ãƒ“ãƒ¼ãƒ­ãƒ¼ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã€
-AKB48 ã€Œä¼šã„ãŸã‹ã£ãŸã€
-AKB48 ã€Œãƒ•ãƒ©ã‚¤ãƒ³ã‚°ã‚²ãƒƒãƒˆã€
-AKB48 ã€Œãƒãƒ‹ãƒ¼ãƒ†ãƒ¼ãƒ«ã¨ã‚·ãƒ¥ã‚·ãƒ¥ã€
-AKB48 ã€ŒEverydayã€ã‚«ãƒãƒ¥ãƒ¼ã‚·ãƒ£ã€
-AKB48 ã€Œæ‹ã™ã‚‹ãƒ•ã‚©ãƒ¼ãƒãƒ¥ãƒ³ã‚¯ãƒƒã‚­ãƒ¼ã€
-AKB48 ã€Œãƒãƒ–ãƒ¼ãƒ­ãƒ¼ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã€
+AKB48@uƒwƒr[ƒ[ƒe[ƒVƒ‡ƒ“v
+AKB48@u‰ï‚¢‚½‚©‚Á‚½v
+AKB48@uƒtƒ‰ƒCƒ“ƒOƒQƒbƒgv
+AKB48@uƒ|ƒj[ƒe[ƒ‹‚ÆƒVƒ…ƒVƒ…v
+AKB48@uEverydayAƒJƒ`ƒ…[ƒVƒƒv
+AKB48@u—ö‚·‚éƒtƒH[ƒ`ƒ…ƒ“ƒNƒbƒL[v
+AKB48@uƒnƒu[ƒ[ƒe[ƒVƒ‡ƒ“v
+SKE48@uÂ‹ó•ÐŽv‚¢v
+SKE48@u‚²‚ß‚ñ‚ËASUMMERv
+SKE48@uƒLƒX‚¾‚Á‚Ä¶Œø‚«v
+SKE48@uƒAƒCƒVƒeƒ‰ƒuƒ‹v
+”T–Øâ46@uƒVƒ“ƒNƒƒjƒVƒeƒBv
+”T–Øâ46@u‹A‚è“¹‚Í‰“‰ñ‚è‚µ‚½‚­‚È‚év
+ŸOâ46@uƒTƒCƒŒƒ“ƒgƒ}ƒWƒ‡ƒŠƒeƒB[v
+ŸOâ46@u•s‹¦˜a‰¹v
+“úŒüâ46@uƒAƒUƒgƒJƒƒCƒCv
+“úŒüâ46@uƒhƒŒƒ~ƒtƒ@ƒ\ƒ‰ƒVƒhv
+

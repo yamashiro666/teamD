@@ -6,12 +6,12 @@ import javax.sound.sampled.Clip;
 
 public class Sounds {
 
-	// 音声ファイルのパスを表すフィールド
+
 	private static File filePath;
 
-	static void playMp3(String path) {}
+	public void playMp3(String path) {}
 
-	Clip playWav(String path) {
+	public Clip playWav(String path) {
 		return null;
 	}
 

@@ -44,11 +44,13 @@ public class LinkFileNameToMp3 {
 		String data = null;
 		InputStream ips1 = ClassLoader.getSystemResourceAsStream(filePath);
 
+
 		try {
 			bf = new BufferedReader(new InputStreamReader(ips1, "SJIS"));
 
 			// 3.  BufferedReaderで1行ずつ読み込んでゆく
 			while ((data = bf.readLine()) != null) {
+				// data.replaceAll(p.toString(), "\\s");
             	arrayList.add(data);
             }
 			bf.close();

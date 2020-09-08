@@ -1,9 +1,9 @@
 back number 「ハッピーエンド」
-Start Dash　「1番」
-start number　「グットエンド」
-back number　「瞬き」
-Mr.children　「しるし」
-Mr.Children　「未来」
-Mr.young　「しるし」
-Mr.young　「声の輝き」
-back number　「高嶺の花子さん」
+Start Dash 「1番」
+start number 「グットエンド」
+back number 「瞬き」
+Mr.children 「しるし」
+Mr.Children 「未来」
+Mr.young 「しるし」
+Mr.young 「声の輝き」
+back number 「高嶺の花子さん」

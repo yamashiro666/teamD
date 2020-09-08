@@ -7,8 +7,9 @@ import java.util.Map;
 import java.util.Random;
 
 import random.RandomUniqueNumberGenerator;
-import selector.LinkFileNameToMp3;
 import selector.NameSelector;
+import sound.Music;
+import sound.Sounds;
 
 class Answer extends Display{
 
@@ -69,64 +70,72 @@ class Answer extends Display{
 		// Romdomクラスで1から10の乱数生成
 		Random random = new Random();
 		randomNum = random.nextInt(9);
-		List<String> kyokumeiList;
 
 		// 4択 A, B, C, Dに格納する文字列配列を初期化
-		answers = new String[3];
+		answers = new String[4];
 
 		/*
 		 *  0 から 3 までの かぶらない乱数 を 生成
 		 *  この乱数をanswers配列のindexに当てる
 		 */
-		int[] randomN1 = RandomUniqueNumberGenerator.randomNoGenerator(3);
+		int[] randomN1 = RandomUniqueNumberGenerator.randomNoGenerator(4);
 		// 乱数が生成されているかの確認用のsysout
 //		for(int i = 0; i < randomN1.length; i++) {
 //			System.out.println(randomN1[i]);
 //		}
 
 
-		/*
-		 *  0 から 8 までの かぶらない乱数 を 生成
-		 *  この乱数をanswers配列のindexに当てる
-		 */
-		int[] randomN2 = RandomUniqueNumberGenerator.randomNoGenerator(8);
-		// 乱数が生成されているかの確認用のsysout
-//		for(int i = 0; i < randomN2.length; i++) {
-//
-//			System.out.println(randomN2[i]);
-//		}
-
 		// SentakushiXX.txt が格納されているフォルダから ランダムでSentakushiファイルを一つ選ぶ
 		NameSelector s = new NameSelector();
 
-		s.getFileNameList().forEach(e -> {
-			List<String> fileNameList = s.getFileNameList();
+		String dirName;
 
-		});
+		// Sentakushi01.txt が所属しているフォルダ名のパスを取得
+		dirName = s.setDirName("Sentakushi01.txt");
 
-		String sentakushiFileName = s.getRomdomTextFileName("Sentakushi01.txt");
-		kyokumeiList = s.readTextFile(sentakushiFileName);
-		 Collections.shuffle(kyokumeiList);
+		// SentakushiXX.txt の文字列リストを取得
+		s.setTxtFileNameList(dirName);
+		// System.out.println(s.setTxtFileNameList(dirName));
 
+		// fileNameList フィールド(Sentakushi.txtのリスト)をシャッフルする
+		Collections.shuffle(s.textFileNameList);
 
-		// 取得したmp3リストの中でもしanswerMp3と合致したものがあれば
-		// 選択肢(answers[])の中に文字列をランダムで代入してゆく
-		if(link.linkedList.containsKey(randomCollectedAnswer)) {
-			for(int i = 0; i <  kyokumeiList.size(); i++) {
-				answers[randomN1[0]] = randomCollectedAnswer;
-				answers[randomN1[1]] = s.getRandomTltleName()[0];
-				answers[randomN1[2]] = s.getRandomTltleName()[1];
-				answers[randomN1[3]] = s.getRandomTltleName()[2];
-			}
+		System.out.println("randomCollectedAnswer : " + randomCollectedAnswer);
+		// fileNameListフィールド(Sentakushi??.txtのリスト) の数分for分を回す
+		for(int i = 0; i < s.textFileNameList.size(); i++) {
+
+			// Windows の場合
+			// String tmp = s.textFileNameList.get(i).replaceAll(".*\\\\", "");
+			// Macの場合
+			String tmp = s.textFileNameList.get(i).replaceAll(".*\\/", "");
+
+			List<String> tmp2 = s.readTextFile(tmp);
+
+			// fileNameListフィールド(Sentakushi??.txtのリスト) の中を拡張for文でひとつづつリストアップしてゆく
+			 for(int j = 0; j < tmp2.size(); j++) {
+
+				 String tmp3 = tmp2.get(j);
+
+				 // System.out.println(tmp3);
+				 if(randomCollectedAnswer.equals(tmp3)){
+
+						// Sentakushi??.txt ファイルに記述されている曲名分の要素数をかぶらないように、ランダムで取得
+						int[] randomN2 = RandomUniqueNumberGenerator.randomNoGenerator(tmp2.size());
+						// 4択の文字列配列に代入してゆく
+						answers[randomN1[0]] = randomCollectedAnswer; // 答えを代入
+						answers[randomN1[1]] = tmp2.get(randomN2[1]); // 残りは不正解の曲名を代入
+						answers[randomN1[2]] = tmp2.get(randomN2[2]); // +1 しているのは先頭の正解の曲名が選ばれないようにするため
+						answers[randomN1[3]] = tmp2.get(randomN2[3]);
+				}
+			 }
 		}
-
 
 		super.display("SelectAnswer.txt");
 
 		// Sysoutで表示。answer[]のうちどれか一つに答えの文字列が入っている。
 		System.out.println("答えを選んでね");
-		System.out.println("A . " + answers[0] + "   B . " +  answers[1]);
-		System.out.println("C . " + answers[2] + "   D . " +  answers[3]);
+		System.out.println("A . " + String.format("%20s",  answers[0] ) + "   B . " +  String.format("%20s",  answers[1]));
+		System.out.println("C . " + String.format("%20s",  answers[2] ) + "   D . " +  String.format("%20s",  answers[3]));
 
 		// 選択肢(A, B, C, D) と 選択肢に対応する曲名 を紐付ける処理を行う
 		tmpAnswer = new HashMap<String, Character>(){
@@ -141,19 +150,10 @@ class Answer extends Display{
 
 	@Override
 	public void selector(){
-		LinkFileNameToMp3 link = new LinkFileNameToMp3("music_title.txt");
-		int random = new Random().nextInt(link.linkedList.size());
-		// ランダムに答えの文字列を選び randomCorrectedAnswers に代入
-		String randomCorrectedMp3 = link.linkedList.get(random);
-		String randomCorrectedAnswer = LinkFileNameToMp3.getKeysByValue(link.linkedList, randomCorrectedMp3).toString();
 
-
-		// mp3のファイル名 をキーに 曲目リスト から 正解の文字列 を取得
-
-
-		// 4択の配列の数分for文を回し、選択肢の中から答えを検索してcharCorrectAnswerに代入
+		// 4択の文字列配列とrandomCollectedAnswerを比較して合致したときに charCorrectAnswer に 4択の中にあるA,B,C,Dの答えを代入
 		for(int i = 0; i < answers.length; i++) {
-			if(linkedTextToMp3.equals(answers[i])) {
+			if(randomCollectedAnswer.equals(answers[i])) {
 				charCorrectAnswer = tmpAnswer.get(answers[i]);
 				System.out.println(answers[i]);
 			}
@@ -166,27 +166,29 @@ class Answer extends Display{
 
 		}else if(getPressedKey() == charCorrectAnswer){  //CorrectAnswerをインスタンス生成及び表示
 
-			//if(answerNum == 0) {
+			// 正解用効果音の用意が必要
+			Sounds sound = new Music();
+			sound.playMp3("Quiz-Buzzer02-1.mp3");
+
 				CorrectAnswer correct = new CorrectAnswer();
 				correct.display("CorrectAnswer.txt");
 				System.out.println("Test_Display_Correct");
 				correct.count(1); //正解数をカウントする
 				correct.input();
 				correct.selector();
-			//}
-
 
 		}else if(getPressedKey() != charCorrectAnswer){  //InCorrectAnswerをインスタンス生成及び表示
 
-			//if(answerNum == 0) {
+			//不正解音
+			Sounds sound = new Music();
+			sound.playMp3("Quiz-Wrong_Buzzer02-2.mp3");
+
 				InCorrectAnswer incorrect = new InCorrectAnswer();
 				incorrect.display("InCorrectAnswer.txt");
 				System.out.println("Test_Display_InCorrect");
 				incorrect.count(1); //不正解数をカウントする
 				incorrect.input();
 				incorrect.selector();
-			//}
-
 		}
 	}
 
