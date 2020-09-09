@@ -2,20 +2,20 @@ package sound;
 
 public interface SoundAdjustment {
 	/**
-	 * èª­ã¿è¾¼ã¾ã‚ŒãŸéŸ³å£°ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é•·ã‚ã«å†ç”Ÿã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰
-	 * @param ãªã—
+	 * “Ç‚İ‚Ü‚ê‚½‰¹ºƒtƒ@ƒCƒ‹‚ğ’·‚ß‚ÉÄ¶‚·‚éƒƒ\ƒbƒh
+	 * @param ‚È‚µ
 	 */
 	public void playLong(String filePath);
 
 	/**
-	 * èª­ã¿è¾¼ã¾ã‚ŒãŸéŸ³å£°ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä¸­ãã‚‰ã„ã®é€Ÿåº¦ã§å†ç”Ÿã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰
-	 * @param ãªã—
+	 * “Ç‚İ‚Ü‚ê‚½‰¹ºƒtƒ@ƒCƒ‹‚ğ’†‚­‚ç‚¢‚Ì‘¬“x‚ÅÄ¶‚·‚éƒƒ\ƒbƒh
+	 * @param ‚È‚µ
 	 */
 	public void playMiddle(String filePath);
 
 	/**
-	 * èª­ã¿è¾¼ã¾ã‚ŒãŸéŸ³å£°ãƒ•ã‚¡ã‚¤ãƒ«ã‚’çŸ­ã‚ã«å†ç”Ÿã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰
-	 * @param ãªã—
+	 * “Ç‚İ‚Ü‚ê‚½‰¹ºƒtƒ@ƒCƒ‹‚ğ’Z‚ß‚ÉÄ¶‚·‚éƒƒ\ƒbƒh
+	 * @param ‚È‚µ
 	 */
 	public void playShort(String filePath);
 }

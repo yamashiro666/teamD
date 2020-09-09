@@ -8,18 +8,15 @@ public class RandomUniqueNumberGenerator{
 
 
 
-	/*
-	 *  0 から 「引数２(no)」 までの数で、なおかつ、重複しない乱数を
-	 *  「引数１(hashSize)」個 生成するメソッド
-	 */
+
     public static int[] randomNoGenerator(int size){
 
-        // 1 ～ 10 の数値が入ったリストを作成
+
         List<Integer> list = new ArrayList<>();{
     	    for ( int i = 0; i < size; i++ ) {
     	      list.add(i);
     	    }
-        // リストの内容をシャッフル。
+
         Collections.shuffle(list);
         };
 

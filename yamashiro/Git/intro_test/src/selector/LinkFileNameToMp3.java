@@ -18,26 +18,26 @@ import java.util.Set;
 public class LinkFileNameToMp3 {
 
 	/**
-	 *  music_tiile.txtã®å†…å®¹ã‚’Mapç®¡ç†ã™ã‚‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰
-	 *  Map<"æ›²å" , "mp3ãƒ•ã‚¡ã‚¤ãƒ«å"> ã§ç®¡ç†
+	 *  music_tiile.txt‚Ì“à—e‚ğMapŠÇ—‚·‚éƒtƒB[ƒ‹ƒh
+	 *  Map<"‹È–¼" , "mp3ƒtƒ@ƒCƒ‹–¼"> ‚ÅŠÇ—
 	 */
 	public Map<String, String> linkedList;
 
 	/**
-	 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§music_tiile.txt å†…ã® æ–‡å­—åˆ—ã‚’ Map<String,String>ã«æ ¼ç´ã™ã‚‹
-	 * 1.  ã€Œæ›²åã€ã¨ã€Œmp3ãƒ•ã‚¡ã‚¤ãƒ«ã¸ã®ãƒ‘ã‚¹ã®æ–‡å­—åˆ—ã€ã‚’ãƒšã‚¢ã§ç®¡ç†ã™ã‚‹ã‚³ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³HashMapã‚’ä½œæˆ
-	 * 2.  foræ–‡ã§æ ¼ç´ã—ã¦ã‚†ãã®ã§ã‚¤ãƒ†ãƒ¬ãƒ¼ã‚¿ãƒ¼ä½œæˆ
-	 * 3.  BufferedReaderã§1è¡Œãšã¤èª­ã¿è¾¼ã‚“ã§ã‚†ã
-	 * 4.  ç”¨æ„ã—ãŸã‚¤ãƒ†ãƒ¬ãƒ¼ã‚¿ãƒ¼ã§HashMapã«æ ¼ç´ã—ã¦ã‚†ã
+	 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Åmusic_tiile.txt “à‚Ì •¶š—ñ‚ğ Map<String,String>‚ÉŠi”[‚·‚é
+	 * 1.  u‹È–¼v‚Æump3ƒtƒ@ƒCƒ‹‚Ö‚ÌƒpƒX‚Ì•¶š—ñv‚ğƒyƒA‚ÅŠÇ—‚·‚éƒRƒŒƒNƒVƒ‡ƒ“HashMap‚ğì¬
+	 * 2.  for•¶‚ÅŠi”[‚µ‚Ä‚ä‚­‚Ì‚ÅƒCƒeƒŒ[ƒ^[ì¬
+	 * 3.  BufferedReader‚Å1s‚¸‚Â“Ç‚İ‚ñ‚Å‚ä‚­
+	 * 4.  —pˆÓ‚µ‚½ƒCƒeƒŒ[ƒ^[‚ÅHashMap‚ÉŠi”[‚µ‚Ä‚ä‚­
 	 *
-	 *  @param filePath æ›²åã¨mp3ãŒãƒšã‚¢ã§è¨˜è¿°ã•ã‚ŒãŸãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«(music_title.txt)
+	 *  @param filePath ‹È–¼‚Æmp3‚ªƒyƒA‚Å‹Lq‚³‚ê‚½ƒeƒLƒXƒgƒtƒ@ƒCƒ‹(music_title.txt)
 	 */
 	public LinkFileNameToMp3(String filePath) {
 
-		//  1.  linkedListãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
+		//  1.  linkedListƒtƒB[ƒ‹ƒh‚ğƒCƒ“ƒXƒ^ƒ“ƒX‰»
 		this.linkedList = new HashMap<>();
 		List<String> arrayList = new ArrayList<>();
-		//  2.  foræ–‡ã§æ ¼ç´ã—ã¦ã‚†ãã®ã§ã‚¤ãƒ†ãƒ¬ãƒ¼ã‚¿ãƒ¼ä½œæˆ
+		//  2.  for•¶‚ÅŠi”[‚µ‚Ä‚ä‚­‚Ì‚ÅƒCƒeƒŒ[ƒ^[ì¬
 		Iterator<String> iterator = arrayList.iterator();
 
 		BufferedReader bf = null;
@@ -48,7 +48,7 @@ public class LinkFileNameToMp3 {
 		try {
 			bf = new BufferedReader(new InputStreamReader(ips1, "SJIS"));
 
-			// 3.  BufferedReaderã§1è¡Œãšã¤èª­ã¿è¾¼ã‚“ã§ã‚†ã
+			// 3.  BufferedReader‚Å1s‚¸‚Â“Ç‚İ‚ñ‚Å‚ä‚­
 			while ((data = bf.readLine()) != null) {
 				// data.replaceAll(p.toString(), "\\s");
             	arrayList.add(data);
@@ -66,7 +66,7 @@ public class LinkFileNameToMp3 {
 
 		}
 
-		// 4.  ç”¨æ„ã—ãŸã‚¤ãƒ†ãƒ¬ãƒ¼ã‚¿ãƒ¼ã§HashMapã«æ ¼ç´ã—ã¦ã‚†ã
+		// 4.  —pˆÓ‚µ‚½ƒCƒeƒŒ[ƒ^[‚ÅHashMap‚ÉŠi”[‚µ‚Ä‚ä‚­
 		for(int i = 0; i < arrayList.size()-1; i+=2) {
 
 			if(!iterator.hasNext()) {
@@ -74,10 +74,10 @@ public class LinkFileNameToMp3 {
 			}
 			this.linkedList.put(arrayList.get(i), arrayList.get(i+1));
 		}
-	} // LinkFileNameToMp3 ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ–ãƒ­ãƒƒã‚¯çµ‚ã‚ã‚Š
+	} // LinkFileNameToMp3 ƒRƒ“ƒXƒgƒ‰ƒNƒ^ƒuƒƒbƒNI‚í‚è
 
 	/**
-	 * linkedList ã®ã‚²ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰
+	 * linkedList ‚ÌƒQƒbƒ^[ƒƒ\ƒbƒh
 	 */
 	public Map<String, String> getLinkedList() {
 		return linkedList;

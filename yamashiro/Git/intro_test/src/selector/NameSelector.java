@@ -6,11 +6,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
-import java.net.URL;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 import java.util.regex.Pattern;
 
 import random.RandomUniqueNumberGenerator;
@@ -42,15 +42,24 @@ public class NameSelector {
 	 */
 	public String setDirName(String filePath){
 		// 1. システムリソースから Sentakushi01.txt のパスを取得する
-				URL pathToTextFile = ClassLoader.getSystemResource(filePath);
+				URI pathToTextFile = null;
+				try {
+					pathToTextFile = ClassLoader.getSystemResource(filePath).toURI();
+					System.out.println("pathToTextFile : " + pathToTextFile.toString());
+				} catch (URISyntaxException e1) {
+					e1.printStackTrace();
+				}
 				try {
 					/*
 					 *  2. フォルダ名に日本語が含まれている場合のためにURLをデコードする。 System.getProperty("file.encoding") がうまくいかなかったので
 					 *  直接指定する。自分が使ってるMacの場合、UTF-8でデコードするとうまく行った。
 					 */
 					String encodedResult = URLDecoder.decode(pathToTextFile.toString(), "UTF-8");
+
 					// 3. このファイルが所属しているディレクトリ名をgetParent()メソッドで取得
 					dirName = new File(encodedResult).getParent();
+
+					System.out.println("setDirNameメソッド内: 変数dirName" + dirName);
 				} catch (UnsupportedEncodingException e) {
 					e.printStackTrace();
 				}
@@ -73,10 +82,15 @@ public class NameSelector {
 
 		// 1. Fileクラスのオブジェクトを生成し対象のディレクトリを指定
 		// 返ってくる文字列は先頭に「file:」がつくのでreplaceで削除
-		File dir = new File(dirName.replace("file:", ""));
+		String tmp1 = dirName.replace("jar:", "");
+		String tmp2 = tmp1.replace("file:","");
+		File dir = new File(tmp2);
+
+
+
 //		System.out.println(dir.isFile()); // TEST
 //		System.out.println(dir.toString()); // TEST
-
+		System.out.println("NameSelectorクラス内: 変数dir :" + dir);
 		 // 2. listFilesを使用してファイル一覧を取得
 		File[] textFileList = dir.listFiles();
 
@@ -87,35 +101,28 @@ public class NameSelector {
 		// 正規表現で検索するための文字列を作成
 		String regex = "^.*(Sentakushi)(.{1,})";
 
+		System.out.println(textFileList.length);
+
 		// 4. 拡張for文でtextFileListからtextFileオブジェクトをひとつづつ取り出してゆく
-		for(File textFile: textFileList) {
-			// if分で textFile.toString() が "Sentakushi*"
-			// に合致するときにその文字列(textFile.toString())を add する
-			if(Pattern.matches(regex, textFile.toString())){
-				textFileNameList.add(textFile.toString());
+		for(int i = 0; i < textFileList.length; i++) {
+			if(Pattern.matches(regex, textFileList[i].toString())){
+				String tmpString = textFileList[i].toString().replace(regex, textFileList[i].toString());
+				textFileNameList.add(tmpString);
 			}
 		}
 
+//		// 4. 拡張for文でtextFileListからtextFileオブジェクトをひとつづつ取り出してゆく
+//		for(File textFile: textFileList) {
+//			// if分で textFile.toString() が "Sentakushi*"
+//			// に合致するときにその文字列(textFile.toString())を add する
+//			if(Pattern.matches(regex, textFile.toString())){
+//				String tmpString = textFile.toString().replace(regex, textFile.toString());
+//				textFileNameList.add(tmpString);
+//			}
+//		}
+
 	    return textFileNameList;
 	}
-
-	/**
-	 * fileRomdomSelector()メソッド
-	 * getTxtFileNameListメソッドで取得した fileNameList フィールドからRandomクラスを使い
-	 * フォルダにあるファイル名の一覧からランダムでひとつ選択するメソッド
-	 *
-	 * @param なし
-	 * @return String フォルダにあるファイル名の一覧からランダムで選ばれたファイル名
-	 */
-//	String fileRomdomSelector() {
-//		// Randomクラス作成
-//		Random random = new Random();
-//		// RandomクラスのnexiIntメソッドで乱数取得
-//		int rondomNum = random.nextInt(this.getFileNameList().size());
-//		// ArrayListのget()メソッドの引数に取得した乱数を入れる
-//		return getFileNameList().get(rondomNum);
-//	}
-
 
 
 	/**
@@ -155,9 +162,9 @@ public class NameSelector {
 		String tmp = null;
 		// 正規表現をつかいフィルターをかける
 		// Windows の場合
-		// String regex = "\\\\t|\\\\n|\\\\r|\\\\r\\\\n";
+		String regex = "\\\\t|\\\\n|\\\\r|\\\\r\\\\n";
 		// Mac の場合
-		String regex = "\\t|\\n|\\r|\\r\\n";
+		// String regex = "\\t|\\n|\\r|\\r\\n";
 		Pattern p = Pattern.compile(regex);
 		musicTitleNameList = new ArrayList<>();
 
@@ -201,25 +208,5 @@ public class NameSelector {
 		return randomTltleName;
 	}
 
-	public static void main(String[] args) {
-		// displayメソッドを使うためにDisplayクラスをインスタンス化
-		// display1.Display display = new display1.Display();
-		NameSelector s = new NameSelector();
-		LinkFileNameToMp3 link = new LinkFileNameToMp3("music_title.txt");
 
-		Set<String> keys = link.linkedList.keySet();
-		for (int i = 0; i < keys.size(); i++) {
-		    String key = keys.toArray(new String[0])[i];
-		    System.out.println(key + " => " + link.linkedList.get(key));
-		}
-
-		System.out.println(s.setDirName("Sentakushi01.txt"));
-		List<String> fileNameList = s.setTxtFileNameList(s.setDirName("Sentakushi01.txt"));
-		fileNameList.forEach(e -> {
-			System.out.println(e);
-		});
-
-
-
-	}
 }

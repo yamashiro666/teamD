@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Selector2 {
 
-	// ãƒ•ã‚©ãƒ«ãƒ€ã«ã‚ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«åä¸€è¦§ã‚’æ ¼ç´ã™ã‚‹ãƒªã‚¹ãƒˆ
+	// ƒtƒHƒ‹ƒ_‚É‚ ‚éƒtƒ@ƒCƒ‹–¼ˆê——‚ğŠi”[‚·‚éƒŠƒXƒg
 	private List<String> fileNameList;
 
 
@@ -16,31 +16,31 @@ public class Selector2 {
 
 	/**
 	 * getFileNames(String dirName)
-	 * å¼•æ•°ã«ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®åå‰ã‚’å…¥ã‚Œã‚‹ã¨ãã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã«ã‚ã‚‹
-	 * ãƒ•ã‚¡ã‚¤ãƒ«åã®ä¸€è¦§ã‚’è¿”ã—ã¦ãã‚Œã‚‹ã€‚ä»¥ä¸‹ã€å‡¦ç†ã®æµã‚Œ
-	 * 1. Fileã‚¯ãƒ©ã‚¹ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç”Ÿæˆã—å¯¾è±¡ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’æŒ‡å®š
-	 * 2. listFilesã‚’ä½¿ç”¨ã—ã¦ãƒ•ã‚¡ã‚¤ãƒ«ä¸€è¦§ã‚’å–å¾—
-	 * 3. ãƒ•ã‚¡ã‚¤ãƒ«åä¸€è¦§ã‚’æ ¼ç´ã™ã‚‹ArrayListä½œæˆ
-	 * 4. æ‹¡å¼µforæ–‡ã§Listã«è¿½åŠ ã—ã¦ã‚†ã
+	 * ˆø”‚ÉƒfƒBƒŒƒNƒgƒŠ‚Ì–¼‘O‚ğ“ü‚ê‚é‚Æ‚»‚ÌƒfƒBƒŒƒNƒgƒŠ‚É‚ ‚é
+	 * ƒtƒ@ƒCƒ‹–¼‚Ìˆê——‚ğ•Ô‚µ‚Ä‚­‚ê‚éBˆÈ‰ºAˆ—‚Ì—¬‚ê
+	 * 1. FileƒNƒ‰ƒX‚ÌƒIƒuƒWƒFƒNƒg‚ğ¶¬‚µ‘ÎÛ‚ÌƒfƒBƒŒƒNƒgƒŠ‚ğw’è
+	 * 2. listFiles‚ğg—p‚µ‚Äƒtƒ@ƒCƒ‹ˆê——‚ğæ“¾
+	 * 3. ƒtƒ@ƒCƒ‹–¼ˆê——‚ğŠi”[‚·‚éArrayListì¬
+	 * 4. Šg’£for•¶‚ÅList‚É’Ç‰Á‚µ‚Ä‚ä‚­
 	 *
-	 * @param dirName ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®åå‰
-	 * @return List<String> ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã«ã‚ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«åä¸€è¦§
+	 * @param dirName ƒfƒBƒŒƒNƒgƒŠ‚Ì–¼‘O
+	 * @return List<String> ƒfƒBƒŒƒNƒgƒŠ‚É‚ ‚éƒtƒ@ƒCƒ‹–¼ˆê——
 	 */
-	
+
 	List<String> getTxtFileNameList(String dirName) {
 
-		// 1. Fileã‚¯ãƒ©ã‚¹ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç”Ÿæˆã—å¯¾è±¡ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’æŒ‡å®š
+		// 1. FileƒNƒ‰ƒX‚ÌƒIƒuƒWƒFƒNƒg‚ğ¶¬‚µ‘ÎÛ‚ÌƒfƒBƒŒƒNƒgƒŠ‚ğw’è
 		File dir = new File(dirName);
 //		System.out.println(dir.isFile());
 //		System.out.println(dir.toString());
 
-		 // 2. listFilesã‚’ä½¿ç”¨ã—ã¦ãƒ•ã‚¡ã‚¤ãƒ«ä¸€è¦§ã‚’å–å¾—
+		 // 2. listFiles‚ğg—p‚µ‚Äƒtƒ@ƒCƒ‹ˆê——‚ğæ“¾
 		File[] list = dir.listFiles();
 
-		// 3. ãƒ•ã‚¡ã‚¤ãƒ«åä¸€è¦§ã‚’æ ¼ç´ã™ã‚‹ArrayListä½œæˆ
+		// 3. ƒtƒ@ƒCƒ‹–¼ˆê——‚ğŠi”[‚·‚éArrayListì¬
 		this.fileNameList = new ArrayList<String>();
 
-		// 4. æ‹¡å¼µforæ–‡ã§Listã«è¿½åŠ ã—ã¦ã‚†ã
+		// 4. Šg’£for•¶‚ÅList‚É’Ç‰Á‚µ‚Ä‚ä‚­
 		for(File file: list) {
 			fileNameList.add(file.getName());
 		}

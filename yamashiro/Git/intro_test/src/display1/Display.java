@@ -10,6 +10,9 @@ import java.io.UnsupportedEncodingException;
 // スーパークラス
 public class Display{
 
+	// selectorメソッドで使用
+	boolean flag = true;
+
 	// プレイヤーが押したキーを保持するフィールド
 	private char pressedKey;
 

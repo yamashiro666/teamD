@@ -2,7 +2,6 @@ package sound;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
-import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.regex.Pattern;
 
@@ -12,6 +11,7 @@ import javafx.scene.media.AudioClip;
 
 public class Music extends Sounds implements SoundAdjustment{
 
+	AudioClip c;
 
 	public void playMp3(String path) {
 
@@ -19,23 +19,29 @@ public class Music extends Sounds implements SoundAdjustment{
 
 		String encodedURL ;
 		String decodedURL;
+
 		try {
 			Pattern p = Pattern.compile("%2520");
 			// URLをデコードする処理
 			String encodedTmpURL = URLEncoder.encode(pathToMp3.toString(), "UTF-8");
-			System.out.println(encodedTmpURL.replace("file%3A%2F", ""));
+//			System.out.println(encodedTmpURL.replace("file%3A%2F", ""));
 			encodedURL = encodedTmpURL.replace("file%3A", "");
-			encodedURL = encodedURL.replace(p.pattern(), "%20");
-			encodedURL = encodedURL.replace("25", "");
-			System.out.println(encodedURL);
-			decodedURL = URLDecoder.decode(encodedURL , "UTF-8");
-			AudioClip c = new AudioClip(pathToMp3.toString());
+//			encodedURL = encodedURL.replace(p.pattern(), "%20");
+//			encodedURL = encodedURL.replace("25", "");
+//			System.out.println(encodedURL);
+//			decodedURL = URLDecoder.decode(encodedURL , "UTF-8");
+			c = new AudioClip(pathToMp3.toString());
 			c.setVolume(1);
 			c.play();
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
 	}
+
+	public void musicStop() {
+		c.stop();
+	}
+
 
 	@Override
 	public void playLong(String filePath) {
@@ -105,4 +111,6 @@ public class Music extends Sounds implements SoundAdjustment{
 		});
 		return playMidlleThread;
 	}
+
+
 }

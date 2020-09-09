@@ -93,6 +93,8 @@ class Answer extends Display{
 		// Sentakushi01.txt が所属しているフォルダ名のパスを取得
 		dirName = s.setDirName("Sentakushi01.txt");
 
+		// System.out.println("Answerクラス内Sysout: 変数dirName: " + dirName);
+
 		// SentakushiXX.txt の文字列リストを取得
 		s.setTxtFileNameList(dirName);
 		// System.out.println(s.setTxtFileNameList(dirName));
@@ -100,14 +102,14 @@ class Answer extends Display{
 		// fileNameList フィールド(Sentakushi.txtのリスト)をシャッフルする
 		Collections.shuffle(s.textFileNameList);
 
-		System.out.println("randomCollectedAnswer : " + randomCollectedAnswer);
+		// System.out.println("randomCollectedAnswer : " + randomCollectedAnswer);
 		// fileNameListフィールド(Sentakushi??.txtのリスト) の数分for分を回す
 		for(int i = 0; i < s.textFileNameList.size(); i++) {
 
 			// Windows の場合
-			// String tmp = s.textFileNameList.get(i).replaceAll(".*\\\\", "");
+			String tmp = s.textFileNameList.get(i).replaceAll(".*\\\\", "");
 			// Macの場合
-			String tmp = s.textFileNameList.get(i).replaceAll(".*\\/", "");
+			// String tmp = s.textFileNameList.get(i).replaceAll(".*\\/", "");
 
 			List<String> tmp2 = s.readTextFile(tmp);
 
@@ -126,6 +128,18 @@ class Answer extends Display{
 						answers[randomN1[1]] = tmp2.get(randomN2[1]); // 残りは不正解の曲名を代入
 						answers[randomN1[2]] = tmp2.get(randomN2[2]); // +1 しているのは先頭の正解の曲名が選ばれないようにするため
 						answers[randomN1[3]] = tmp2.get(randomN2[3]);
+
+						boolean flag1 = answers[randomN1[1]] == answers[randomN1[2]];
+						boolean flag2 = answers[randomN1[1]] == answers[randomN1[3]];
+						boolean flag3 = answers[randomN1[2]] == answers[randomN1[3]];
+
+						if(flag1 || flag2 || flag3){
+							while(flag1 || flag2 || flag3) {
+								for(int k = 1; k < 4; k++) {
+									answers[randomN1[random.nextInt(3)]] = tmp2.get(random.nextInt(tmp2.size()));
+								}
+							}
+						}
 				}
 			 }
 		}
@@ -150,45 +164,55 @@ class Answer extends Display{
 
 	@Override
 	public void selector(){
+		while(flag == true){ // 適切な値を入力し正常に動作したらfalseで終了。不適切な値が入力された場合はtrueでループしてやり直し
 
-		// 4択の文字列配列とrandomCollectedAnswerを比較して合致したときに charCorrectAnswer に 4択の中にあるA,B,C,Dの答えを代入
-		for(int i = 0; i < answers.length; i++) {
-			if(randomCollectedAnswer.equals(answers[i])) {
-				charCorrectAnswer = tmpAnswer.get(answers[i]);
-				System.out.println(answers[i]);
+			super.input();
+
+			// 4択の文字列配列とrandomCollectedAnswerを比較して合致したときに charCorrectAnswer に 4択の中にあるA,B,C,Dの答えを代入
+			for(int i = 0; i < answers.length; i++) {
+				if(randomCollectedAnswer.equals(answers[i])) {
+					charCorrectAnswer = tmpAnswer.get(answers[i]);
+					System.out.println(answers[i]);
+				}
 			}
-		}
 
-		if(getPressedKey() == 'e' || getPressedKey() == 'E'){  //Exitをインスタンス生成及び表示
+			if(getPressedKey() == 'e' || getPressedKey() == 'E'){  //Exitをインスタンス生成及び表示
 
-			Exit exit = new Exit();
-			exit.display("Exit.txt");
+				Exit exit = new Exit();
+				exit.display("Exit.txt");
+				flag = false;
 
-		}else if(getPressedKey() == charCorrectAnswer){  //CorrectAnswerをインスタンス生成及び表示
+			}else if(getPressedKey() == charCorrectAnswer){  //CorrectAnswerをインスタンス生成及び表示
 
-			// 正解用効果音の用意が必要
-			Sounds sound = new Music();
-			sound.playMp3("Quiz-Buzzer02-1.mp3");
+				// 正解用効果音の用意が必要
+				Sounds sound = new Music();
+				sound.playMp3("Quiz-Buzzer02-1.mp3");
 
 				CorrectAnswer correct = new CorrectAnswer();
 				correct.display("CorrectAnswer.txt");
 				System.out.println("Test_Display_Correct");
 				correct.count(1); //正解数をカウントする
-				correct.input();
+
 				correct.selector();
+				flag = false;
 
-		}else if(getPressedKey() != charCorrectAnswer){  //InCorrectAnswerをインスタンス生成及び表示
+			}else if(getPressedKey() != charCorrectAnswer){  //InCorrectAnswerをインスタンス生成及び表示
 
-			//不正解音
-			Sounds sound = new Music();
-			sound.playMp3("Quiz-Wrong_Buzzer02-2.mp3");
+				//不正解音
+				Sounds sound = new Music();
+				sound.playMp3("Quiz-Wrong_Buzzer02-2.mp3");
 
 				InCorrectAnswer incorrect = new InCorrectAnswer();
 				incorrect.display("InCorrectAnswer.txt");
 				System.out.println("Test_Display_InCorrect");
 				incorrect.count(1); //不正解数をカウントする
-				incorrect.input();
+
 				incorrect.selector();
+				flag = false;
+
+			}else{  // 入力した数値が正しくない場合ループする
+				System.out.println("正しい値を入力してください");
+			}
 		}
 	}
 
