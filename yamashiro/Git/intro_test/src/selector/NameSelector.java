@@ -1,3 +1,6 @@
+/*
+ * 112行目 Windows とMac かでどちらかのコメントを外して使用する
+ */
 package selector;
 
 import java.io.BufferedReader;
@@ -22,10 +25,13 @@ public class NameSelector {
 	 */
 	public List<String> textFileNameList;
 
+	/**
+	 * Sentakushi??.txt内の曲名を格納するリスト
+	 */
 	List<String> musicTitleNameList;
 
 	/**
-	 *  Sentakushi.txtがあるフォルダのパス名を表すフィールド
+	 *  Sentakushi??.txtがあるフォルダのパス名を表すフィールド
 	 */
 	String dirName;
 
@@ -86,22 +92,20 @@ public class NameSelector {
 		String tmp2 = tmp1.replace("file:","");
 		File dir = new File(tmp2);
 
-
-
 //		System.out.println(dir.isFile()); // TEST
 //		System.out.println(dir.toString()); // TEST
-		System.out.println("NameSelectorクラス内: 変数dir :" + dir);
+//		System.out.println("NameSelectorクラス内: 変数dir :" + dir);
+
 		 // 2. listFilesを使用してファイル一覧を取得
 		File[] textFileList = dir.listFiles();
 
-		// System.out.println(Arrays.toString(list));
 		// 3. ファイル名一覧を格納するArrayList作成
 		this.textFileNameList = new ArrayList<String>();
 
 		// 正規表現で検索するための文字列を作成
 		String regex = "^.*(Sentakushi)(.{1,})";
 
-		System.out.println(textFileList.length);
+//		System.out.println(textFileList.length);
 
 		// 4. 拡張for文でtextFileListからtextFileオブジェクトをひとつづつ取り出してゆく
 		for(int i = 0; i < textFileList.length; i++) {
@@ -110,17 +114,6 @@ public class NameSelector {
 				textFileNameList.add(tmpString);
 			}
 		}
-
-//		// 4. 拡張for文でtextFileListからtextFileオブジェクトをひとつづつ取り出してゆく
-//		for(File textFile: textFileList) {
-//			// if分で textFile.toString() が "Sentakushi*"
-//			// に合致するときにその文字列(textFile.toString())を add する
-//			if(Pattern.matches(regex, textFile.toString())){
-//				String tmpString = textFile.toString().replace(regex, textFile.toString());
-//				textFileNameList.add(tmpString);
-//			}
-//		}
-
 	    return textFileNameList;
 	}
 
@@ -138,16 +131,10 @@ public class NameSelector {
 	 */
 	public String getRomdomTextFileName(String filePath) {
 
+		// 1. setDirNameメソッドでSentakushi01.txtが格納されているディレクトリのパスの文字列をdirNameフィールドにセット
 		setDirName(filePath);
 
-		// System.out.println(dirName); // TEST
-	/**
-	 * ■getTextFileNameList(String dirName)の内容 :
-	 * 引数にディレクトリの名前を入れるとそのディレクトリにある ファイル名の一覧を返してくれるメソッド。
-	 */
-		//getTxtFileNameList(dirName);
-
-		// 2.Sentakushiが格納されているファイル群の内、一つのファイルをランダムで選択
+		// 2. 3. Sentakushiが格納されているファイル群の内、一つのファイルをランダムで選択
 		int[] randomNum = RandomUniqueNumberGenerator.randomNoGenerator(setTxtFileNameList(dirName).size());
 		String returnValue = setTxtFileNameList(dirName).get(randomNum[0]);
 
@@ -156,15 +143,17 @@ public class NameSelector {
 
 	/**
 	 * Sentakushi??.txt の 中身を読み込んで musicTitleNameList フィールドに代入するメソッド
+	 * @param filePath Sentakushi??.txt ファイルのパス名
+	 * @return List<String> musicTitleNameList フィールド
 	 */
 	public List<String> readTextFile(String filePath) {
 		// BufferedReaderで使用するための 変数 tmp
 		String tmp = null;
 		// 正規表現をつかいフィルターをかける
 		// Windows の場合
-		String regex = "\\\\t|\\\\n|\\\\r|\\\\r\\\\n";
+		// String regex = "\\\\t|\\\\n|\\\\r|\\\\r\\\\n";
 		// Mac の場合
-		// String regex = "\\t|\\n|\\r|\\r\\n";
+		String regex = "\\t|\\n|\\r|\\r\\n";
 		Pattern p = Pattern.compile(regex);
 		musicTitleNameList = new ArrayList<>();
 

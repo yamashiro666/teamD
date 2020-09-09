@@ -1,25 +1,56 @@
-EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT
-EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT
-EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT
-EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT
-EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT
-EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT
-EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT
-EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT
-EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT
-EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT
-EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT
-EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT
-EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT
-EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT
-EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT
-EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT
-EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT
-EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT
-EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT
-EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT
-EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT
-EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT
-EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT
-EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT
-EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT EXIT
+    /■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆
+   //◆////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////■
+  ///■////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////◆
+ |///◆ ￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|//■
+ |///■　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 |//◆
+ |///◆　　　　　　　　　　　 /■■■■■■■■■■■　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 |//■
+ |///■　　　　　　　　　　　//■■■■■■■■■■■　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 |//◆
+ |///◆　　　　　　　　　　 ///■■///////////////// 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 |//■
+ |///■　　　　　　　　　　////■■////////////////　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 |//◆
+ |///◆　　　　　　　　　 /////■■/////////////// 　　　　　　　　　　　　　　　  /■ 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 |//■
+ |///■　　　　　　　　　//////■■//////////////　　　　　　　　　　　　　　　　 //■ 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 |//◆
+ |///◆　　　　　　　　 |//////■■///////////// 　　　　　　　　　　　　　　　　//// 　　　　　　 /■ 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 |//■
+ |///■　　　　　　　　 |//////■■■■■■■■■■■　　 /■　　　　　　 /■　 ////■　　　　　　//■ 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 |//◆
+ |///◆　　　　　　　　 |//////■■■■■■■■■■■　　////■　　　　 /■/ 　/////■　　　　　 ///■ 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 |//■
+ |///■　　　　　　　　 |//////■■///////////////// 　 ///////■　　 /■//　 //////■　　　 /■■■■■■■ 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 |//◆
+ |///◆　　　　　　　　 |//////■■////////////////　　//////////■ /■/// 　///////■　　　////////■/////　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 |//■
+ |///■　　　　　　　　 |//////■■/////////////// 　 /////////////■////　 |///////■　　 /////////■//// 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 |//◆
+ |///◆　　　　　　　　 |//////■■//////////////　　////////////■//■/ 　 |///////■　　//////////■///　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 |//■
+ |///■　　　　　　　　 |//////■■///////////// 　 |//////////■//////■　 |///////■　 ///////////■// 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 |//◆
+ |///◆　　　　　　　　 |//////■■■■■■■■■■■￣|/////■//////////■ |///////■　////////////■/　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 |//■
+ |///■　　　　　　　　 |//////■■■■■■■■■■■　 ￣/■//////////////■///////■ |////////////■ 　　　　　　　　　　　　　/■ 　　　　　　　　　　　　　　　　　　　　　 |//◆
+ |///◆　　　　　　　　 |/////////////////////////// 　　///////////////////|//////// 　￣￣|////////　　　　　　　　　　　/■  //■   /■ 　　　　　　　　　　　　　　　　　　 |//■
+ |///■　　　　　　　　 |//////////////////////////　　 /////////////////// |///////　　　　|/////// 　　　　　　　　　　 //■■■■■■■ 　　　　　　　　　　　　　　　　　　 |//◆
+ |///◆　　　　　　　　 |///////////////////////// 　　////// |///////////  |////// 　　　　|//////　　　　　　　　　　　/////////■/////　　　　　　　　　　　　　　　　　　　 |//■
+ |///■　　　　　　　　 |////////////////////////　   /////   ￣|////////　 |/////　　　　　|///// 　　　　　　　　　　 //////////■//// 　　　 /■■■■■　　　　　　　　　　 |//◆
+ |///◆　　　　　　　　 |/////////////////////// 　  ////    　 ￣|///// 　 |//// 　　　　　|////　　　　　　　　　　　///////////■///　　　　//■//////■　　　　　　　　　　 |//■
+ |///■　　　　　　　　 |//////////////////////　　 |///   　　　 ￣|//　　 |///　　　　　　|/// 　　　　　　　　　　 ////////////■// 　　　 ///■//////■　　　　　　　　　　 |//◆
+ |///◆　　　　　　　　 ￣￣￣￣￣￣￣￣￣￣￣ 　　  ￣  　　　　   ￣　　　 ￣ 　　　　　　 ￣　　　　　　　　　　　|/////■/////■/　 /■　////■//////■　　　　　　　　　　 |//■
+ |///■　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　￣￣//■■■■■■■■ /////■■■■■　　　　　　　　　　 |//◆
+ |///◆　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 ////////////////// /////////////// 　　　　　　　　　　 |//■
+ |///■　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　////////////////// |//////////////　　　　　　　　　　　 |//◆
+ |///◆　　　　　　　　　　　　　 /■　　　　 /■　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 //////////////////  |///////////// 　　　　　　　　　　　 |//■
+ |///■　　　　　　　　　　 /■　//■　　　　//■　　　　　　 /■　 /■　　　　　　　　　　　　　　　　　　　　　　　//////////////////　 |////////////　　　　　　　　　　　　 |//◆
+ |///◆　　　　　　　　　　//■ //// 　　 /■■■　 /■■　　//■　//■　　　　　　　　　　　　　　　　　　　　　　 |///////////////// 　 |/////////// 　　　　　　　　　　　　 |//■
+ |///■　　　　　　　 /■■■■■■■　　//////■ /■////■ ///■　//■　　　　　　　　　　　　　　　　　　　　　　　￣￣￣￣￣￣￣￣　　  ￣￣￣￣￣　　　　　　　　　　　　　 |//◆
+ |///◆　　　　　　　////////■///// 　 ///////■■//////■ //// 　//■　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 |//■
+ |///■　　　　　　 ///////■■■■　　////////■////////■ ///　　//■　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 |//◆
+ |///◆　　　　　　//////■//■////■　//////■■/ 　//■/　　　  /■/ 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 |//■
+ |///■　　　　　　//////■//■////■　　　 ///■　 /■// 　　 /■// 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 |//◆
+ |///◆　　　　　　　 /////■/////// 　　　////■　///// 　　 /////　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 |//■
+ |///■　　　　　　　////////////// 　　　//////　////　　　 ////　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 |//◆
+ |///◆　　　　　　　//////　　/// 　　　　 ///　 // 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 |//■
+ |///■　　　　　　　　/// 　 ///　　　　　 // 　　　　　　　　　　　　　　　　　　　　　　　　 /■■　　　　　　　　　　　 /■　　　　　　　　　　　　　　　　　　　　　　　　 |//◆
+ |///◆　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 /■////■　　 /■■　　　　　//■　　　　　　　　　　　　　　　　　　　　　　　　 |//■
+ |///■　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　//■■■■　 /■////■　　 /■■■　　　　　　　　　　　　　　　　　　　　　　　　 |//◆
+ |///◆　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　//■///// 　//■////■　 /■////■　　　　　　　　　　　　　　　　　　　　　　　　 |//■
+ |///■　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　////■■　　//■////■　//■////■　　　　　　　　　　　　　　　　　　　　　　　　 |//◆
+ |///◆　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　/////// 　　/// 　/// 　////■■■　　　　　　　　　　　　　　　　　　　　　　　　 |//■
+ |///■　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　////　　　//  　//  　///////// 　　　　　　　　　　　　　　　　　　　　　　　　 |//◆
+ |///◆　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 ///////　　　　　　　　　　　　　　　　　　　　　　　　　 |//■
+ |///■　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 |//◆
+ |///◆　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 |//■
+ |///■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆■◆
+ |//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ |/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  ￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣

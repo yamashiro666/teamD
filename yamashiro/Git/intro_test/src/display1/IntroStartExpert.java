@@ -50,7 +50,7 @@ class IntroStartExpert extends Answer{
 		new Thread(() -> {
 			sound.playMp3(randomCollectedMp3);
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(650);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

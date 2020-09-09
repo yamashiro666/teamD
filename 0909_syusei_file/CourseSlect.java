@@ -6,9 +6,9 @@ class CourseSlect extends  Display{
 
 	@Override
 	public void selector(){
-		
+
 		while(flag == true){ // 適切な値を入力し正常に動作したらfalseで終了。不適切な値が入力された場合はtrueでループしてやり直し
-			
+
 			super.input();
 
 			if(getPressedKey() == '4'){  //Exitをインスタンス生成及び表示

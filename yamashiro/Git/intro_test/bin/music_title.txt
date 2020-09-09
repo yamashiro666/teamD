@@ -1,21 +1,21 @@
 桐谷健太 「海の声」
-music01.mp3
+music1.mp3
 AKB48 「ヘビーローテーション」
-music02.mp3
+music2.mp3
 back number 「ハッピーエンド」
-music03.mp3
+music3.mp3
 HY 「366日」
-music04.mp3
+music4.mp3
 King Gnu 「白日」
-music05.mp3
+music5.mp3
 THE 虎舞竜 「ロード」
-music06.mp3
+music6.mp3
 PINK LADY 「UFO」
-music07.mp3
+music7.mp3
 あいみょん 「マリーゴールド」
-music08.mp3
+music8.mp3
 あいみょん 「裸の心」
-music09.mp3
+music9.mp3
 ウルフルズ 「ガッツだぜ！！」
 music10.mp3
 モーニング娘。 「LOVEマシーン」

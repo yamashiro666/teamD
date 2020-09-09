@@ -17,7 +17,9 @@ public class Main {
 		// ProcessBuilderクラスを使いコマンドプロンプトの画面をクリアするコマンドを実行
 		// する予定だけど、まだうまくいってない...
 		// new ClearDisplay();
-		startDisplay.selector();
+		while(startDisplay.flag == true) {
+			startDisplay.selector();
+		}
 
 
 	}

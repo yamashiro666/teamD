@@ -69,7 +69,7 @@ class CorrectAnswer extends Answer{
 				System.out.println("1F‚m‚d‚w‚s");
 				System.out.println("2F‚d‚w‚h‚s");
 
-				rst.input();
+				// rst.input();
 				rst.selector();
 				flag = false;
 

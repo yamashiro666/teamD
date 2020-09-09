@@ -43,19 +43,19 @@ class InCorrectAnswer extends Answer{
 				}else if(Answer.correctNum == 4) {
 
 					// 評価画面のクラスを作ってdisplayメソッドで呼び出し
-					rst.display("Result2.txt"); //テキストファイルの作成が必要
+					rst.display("Result2.txt");
 					System.out.println("マツコ「なかなかやるわね」");
 
 				}else if(Answer.correctNum == 3) {
 
 					// 評価画面のクラスを作ってdisplayメソッドで呼び出し
-					rst.display("Result3.txt"); //テキストファイルの作成が必要
+					rst.display("Result3.txt");
 					System.out.println("マツコ「もっとがんばりなさい」");
 
 				}else if(Answer.correctNum < 3) {
 
 					// 評価画面のクラスを作ってdisplayメソッドで呼び出し
-					rst.display("Result4.txt"); //テキストファイルの作成が必要
+					rst.display("Result4.txt");
 					System.out.println("マツコ「くぁｆえｊんｎねｆっｄｄ！」");
 				}
 
@@ -67,7 +67,7 @@ class InCorrectAnswer extends Answer{
 				System.out.println("1：ＮＥＸＴ");
 				System.out.println("2：ＥＸＩＴ");
 
-				rst.input();
+				// rst.input();
 				rst.selector();
 				flag = false;
 

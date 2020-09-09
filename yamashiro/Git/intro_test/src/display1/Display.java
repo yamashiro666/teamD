@@ -35,7 +35,6 @@ public class Display{
 	 */
 	public void display(String filePath) {
 
-
 		String tmp = null;
 		StringBuffer strBuffer = new StringBuffer();
 
@@ -109,7 +108,7 @@ public class Display{
 		try {
 
 			// 2. 押されたキーをフィールド pressedKey に代入する。
-				this.pressedKey = (char)reader.read();
+			this.pressedKey = (char)reader.read();
 
 		} catch (IOException e) {
 			e.printStackTrace();

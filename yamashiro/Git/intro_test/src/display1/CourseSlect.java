@@ -5,32 +5,40 @@ class CourseSlect extends  Display{
 	@Override
 	public void selector(){
 
-		if(getPressedKey() == '4'){  //Exitをインスタンス生成及び表示
+		while(flag == true){ // 適切な値を入力し正常に動作したらfalseで終了。不適切な値が入力された場合はtrueでループしてやり直し
 
-			Exit exit = new Exit();
-			exit.display("Exit.txt");
+			super.input();
 
-		}else if(getPressedKey() == '1'){  //IntroStartBeginnerをインスタンス生成及び表示
+			if(getPressedKey() == '4'){  //Exitをインスタンス生成及び表示
 
-			Answer isb = new IntroStartBeginner();
-			isb.display("IntroStartBeginner.txt");
-			isb.input();
-			isb.selector();
+				Exit exit = new Exit();
+				exit.display("Exit.txt");
+				flag = false;
 
-		}else if(getPressedKey() == '2'){  //IntroStartMediumをインスタンス生成及び表示
+			}else if(getPressedKey() == '1'){  //IntroStartBeginnerをインスタンス生成及び表示
 
-			Answer ism = new IntroStartMedium();
-			ism.display("IntroStartMedium.txt");
-			ism.input();
-			ism.selector();
+				Answer isb = new IntroStartBeginner();
+				isb.display("IntroStartBeginner.txt");
+				isb.selector();
+				flag = false;
 
-		}else if(getPressedKey() == '3'){  //IntroStartExpertをインスタンス生成及び表示
+			}else if(getPressedKey() == '2'){  //IntroStartMediumをインスタンス生成及び表示
 
-			Answer ise = new IntroStartExpert();
-			ise.display("IntroStartExpert.txt");
-			ise.input();
-			ise.selector();
+				Answer ism = new IntroStartMedium();
+				ism.display("IntroStartMedium.txt");
+				ism.selector();
+				flag = false;
 
+			}else if(getPressedKey() == '3'){  //IntroStartExpertをインスタンス生成及び表示
+
+				Answer ise = new IntroStartExpert();
+				ise.display("IntroStartExpert.txt");
+				ise.selector();
+				flag = false;
+
+			}else{  //入力した数値が正しくない場合ループする
+					System.out.println("正しい値を入力してください");
+			}
 		}
 
 	}

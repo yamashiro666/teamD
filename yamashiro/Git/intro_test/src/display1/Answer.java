@@ -1,3 +1,6 @@
+/*
+ * 112行目 Windows とMac かでどちらかのコメントを外して使用する
+ */
 package display1;
 
 import java.util.Collections;
@@ -54,16 +57,22 @@ class Answer extends Display{
 	 */
 	char charCorrectAnswer;
 
-	// 0～10の乱数。songFileName[]とsongsTitleName[][]からクイズに必要な音声ファイルと曲名リストをランダムで取得する時に使用
+	/**
+	 *  0～10の乱数。songFileName[]とsongsTitleName[][]からクイズに必要な音声ファイルと曲名リストをランダムで取得する時に使用
+	 */
 	int randomNum;
 
-	// charCorrectAnswer (選択肢の A, B, C, D 部分)と answers(選択肢の 文字列部分) を紐付けるためのフィールド
+	/**
+	 *  charCorrectAnswer (選択肢の A, B, C, D 部分)と answers(選択肢の 文字列部分) を紐付けるためのフィールド
+	 */
 	Map<String, Character> tmpAnswer;
 
 
 
 	/**
 	 *  answers[] をシャッフルして charCorrectAnswer(選択肢 A, B, C, D) にランダムで配置するメソッド
+	 *  @param なし
+	 *  @return なし
 	 */
 	public void shuffle4Taku(){
 
@@ -107,9 +116,9 @@ class Answer extends Display{
 		for(int i = 0; i < s.textFileNameList.size(); i++) {
 
 			// Windows の場合
-			String tmp = s.textFileNameList.get(i).replaceAll(".*\\\\", "");
+			// String tmp = s.textFileNameList.get(i).replaceAll(".*\\\\", "");
 			// Macの場合
-			// String tmp = s.textFileNameList.get(i).replaceAll(".*\\/", "");
+			String tmp = s.textFileNameList.get(i).replaceAll(".*\\/", "");
 
 			List<String> tmp2 = s.readTextFile(tmp);
 
@@ -126,17 +135,18 @@ class Answer extends Display{
 						// 4択の文字列配列に代入してゆく
 						answers[randomN1[0]] = randomCollectedAnswer; // 答えを代入
 						answers[randomN1[1]] = tmp2.get(randomN2[1]); // 残りは不正解の曲名を代入
-						answers[randomN1[2]] = tmp2.get(randomN2[2]); // +1 しているのは先頭の正解の曲名が選ばれないようにするため
+						answers[randomN1[2]] = tmp2.get(randomN2[2]); // +1 しているのはget(0)が選ばれないようにするため
 						answers[randomN1[3]] = tmp2.get(randomN2[3]);
 
 						boolean flag1 = answers[randomN1[1]] == answers[randomN1[2]];
 						boolean flag2 = answers[randomN1[1]] == answers[randomN1[3]];
 						boolean flag3 = answers[randomN1[2]] == answers[randomN1[3]];
 
+						// answer[1] answer[2] answer[3] の答えがかぶらないようにする処理
 						if(flag1 || flag2 || flag3){
 							while(flag1 || flag2 || flag3) {
 								for(int k = 1; k < 4; k++) {
-									answers[randomN1[random.nextInt(3)]] = tmp2.get(random.nextInt(tmp2.size()));
+									answers[randomN1[random.nextInt(answers.length-1)]] = tmp2.get(random.nextInt(tmp2.size()));
 								}
 							}
 						}
@@ -166,13 +176,13 @@ class Answer extends Display{
 	public void selector(){
 		while(flag == true){ // 適切な値を入力し正常に動作したらfalseで終了。不適切な値が入力された場合はtrueでループしてやり直し
 
-			super.input();
+			this.input();
 
 			// 4択の文字列配列とrandomCollectedAnswerを比較して合致したときに charCorrectAnswer に 4択の中にあるA,B,C,Dの答えを代入
 			for(int i = 0; i < answers.length; i++) {
 				if(randomCollectedAnswer.equals(answers[i])) {
 					charCorrectAnswer = tmpAnswer.get(answers[i]);
-					System.out.println(answers[i]);
+//					System.out.println(answers[i]);
 				}
 			}
 
@@ -184,13 +194,12 @@ class Answer extends Display{
 
 			}else if(getPressedKey() == charCorrectAnswer){  //CorrectAnswerをインスタンス生成及び表示
 
-				// 正解用効果音の用意が必要
 				Sounds sound = new Music();
 				sound.playMp3("Quiz-Buzzer02-1.mp3");
 
 				CorrectAnswer correct = new CorrectAnswer();
 				correct.display("CorrectAnswer.txt");
-				System.out.println("Test_Display_Correct");
+				// System.out.println("Test_Display_Correct");
 				correct.count(1); //正解数をカウントする
 
 				correct.selector();
@@ -204,7 +213,7 @@ class Answer extends Display{
 
 				InCorrectAnswer incorrect = new InCorrectAnswer();
 				incorrect.display("InCorrectAnswer.txt");
-				System.out.println("Test_Display_InCorrect");
+				// System.out.println("Test_Display_InCorrect");
 				incorrect.count(1); //不正解数をカウントする
 
 				incorrect.selector();

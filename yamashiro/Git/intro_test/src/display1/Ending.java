@@ -13,14 +13,21 @@ class Ending extends Display{
 
 				Exit exit = new Exit();
 				exit.display("Exit.txt");
+				flag = false;
 
 			}else if(getPressedKey() == 1){  //StartDisplayをインスタンス生成及び表示
 
 				StartDisplay start = new StartDisplay();
 
 				start.display("StartDisplay.txt");
-				start.input();
-				start.selector();
+				flag = true;
+
+				// 正解・不正回数フィールドをリセットする
+				Answer.answerNum = 0;
+				Answer.courseLevel = 0;
+				Answer.correctNum = 0;
+				Answer.inCorrectNum = 0;
+
 
 			}else{  //入力した数値が正しくない場合ループする
 

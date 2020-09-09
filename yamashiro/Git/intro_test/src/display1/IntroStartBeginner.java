@@ -15,7 +15,6 @@ class IntroStartBeginner extends Answer{
 		CountDown cd = new CountDown();
 		cd.display("Countdown1.txt");
 
-
 		// ■LinkFileNameToMp3 クラスで以下の処理を行う
 		// 1. music_title.txt からランダムで mp3 ファイル名を取得してmp3再生
 		// 2. 再生したmp3ファイル名の曲名を取得
@@ -46,20 +45,19 @@ class IntroStartBeginner extends Answer{
 
 		// カウントダウン後、randomCollectedMp3フィールドを使い、音声ファイルをランダムで選択し再生する
 		// playMp3メソッドはstaticメソッドにしました。
-		System.out.println("IntroStartBeginnerクラス内: 変数:randomCollectedMp3:  " + randomCollectedMp3);
+//		System.out.println("IntroStartBeginnerクラス内: 変数:randomCollectedMp3:  " + randomCollectedMp3);
 
 		Music sound = new Music();
 		new Thread(() -> {
 			sound.playMp3(randomCollectedMp3);
 			try {
+				// このsleepメソッドの数値を変えると再生時間を調整できます
 				Thread.sleep(4300);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 			sound.musicStop();
 		}).start();
-
-
 
 		super.shuffle4Taku();
 
